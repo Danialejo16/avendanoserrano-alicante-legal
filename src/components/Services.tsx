@@ -1,12 +1,5 @@
 import {
-  Scale,
-  Home,
-  Users,
-  Briefcase,
-  FileText,
-  Shield,
-  Car,
-  Landmark,
+  Scale, Home, Users, Briefcase, FileText, Shield, Car, Landmark,
 } from "lucide-react";
 
 const services = [
@@ -26,9 +19,9 @@ const Services = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="w-8 h-[2px] bg-gold" />
-            <span className="text-gold text-sm tracking-[0.3em] uppercase font-body">Áreas de práctica</span>
-            <div className="w-8 h-[2px] bg-gold" />
+            <div className="w-8 h-[2px] bg-highlight" />
+            <span className="text-highlight text-sm tracking-[0.3em] uppercase font-body">Áreas de práctica</span>
+            <div className="w-8 h-[2px] bg-highlight" />
           </div>
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
             Servicios Jurídicos Integrales
@@ -42,10 +35,10 @@ const Services = () => {
           {services.map((service) => (
             <div
               key={service.title}
-              className="group bg-card border border-border hover:border-gold/40 rounded-lg p-7 transition-all duration-300 hover:shadow-lg hover:shadow-gold/5"
+              className="group bg-card border border-border hover:border-highlight/40 rounded-lg p-7 transition-all duration-300 hover:shadow-lg hover:shadow-highlight/5"
             >
               <div className="w-12 h-12 rounded-lg bg-navy-deep flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-                <service.icon className="w-6 h-6 text-gold" />
+                <service.icon className="w-6 h-6 text-highlight-light" />
               </div>
               <h3 className="font-heading text-lg font-semibold text-foreground mb-2">
                 {service.title}
