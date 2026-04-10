@@ -1,0 +1,79 @@
+import { useState } from "react";
+import { Menu, X, Phone } from "lucide-react";
+
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const links = [
+    { label: "Inicio", href: "#inicio" },
+    { label: "Servicios", href: "#servicios" },
+    { label: "Sobre Nosotros", href: "#nosotros" },
+    { label: "Contacto", href: "#contacto" },
+  ];
+
+  return (
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-navy-deep/95 backdrop-blur-md border-b border-gold/20">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-20">
+        <a href="#inicio" className="flex flex-col">
+          <span className="font-heading text-lg md:text-xl font-semibold text-primary-foreground tracking-wide">
+            Avendaño Serrano
+          </span>
+          <span className="text-gold text-xs tracking-[0.3em] uppercase">Abogados</span>
+        </a>
+
+        {/* Desktop */}
+        <div className="hidden md:flex items-center gap-8">
+          {links.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="text-sm text-primary-foreground/80 hover:text-gold transition-colors tracking-wide uppercase"
+            >
+              {link.label}
+            </a>
+          ))}
+          <a
+            href="tel:+34600000000"
+            className="flex items-center gap-2 gold-gradient text-accent-foreground px-5 py-2.5 rounded text-sm font-semibold hover:opacity-90 transition-opacity"
+          >
+            <Phone className="w-4 h-4" />
+            Llamar ahora
+          </a>
+        </div>
+
+        {/* Mobile toggle */}
+        <button
+          className="md:hidden text-primary-foreground"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
+      </div>
+
+      {/* Mobile menu */}
+      {isOpen && (
+        <div className="md:hidden bg-navy-deep border-t border-gold/20 px-6 pb-6">
+          {links.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={() => setIsOpen(false)}
+              className="block py-3 text-primary-foreground/80 hover:text-gold transition-colors text-sm uppercase tracking-wide"
+            >
+              {link.label}
+            </a>
+          ))}
+          <a
+            href="tel:+34600000000"
+            className="mt-3 flex items-center justify-center gap-2 gold-gradient text-accent-foreground px-5 py-2.5 rounded text-sm font-semibold"
+          >
+            <Phone className="w-4 h-4" />
+            Llamar ahora
+          </a>
+        </div>
+      )}
+    </nav>
+  );
+};
+
+export default Navbar;
