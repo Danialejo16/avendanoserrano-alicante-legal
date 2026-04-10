@@ -1,8 +1,9 @@
 import {
-  Scale, Home, Users, Briefcase, FileText, Shield, Car, Landmark,
+  Scale, Home, Users, Briefcase, FileText, Shield, Car, Landmark, Globe,
 } from "lucide-react";
 
 const services = [
+  { icon: Globe, title: "Derecho de Extranjería", desc: "Permisos de residencia, visados, nacionalidad, arraigo y reagrupación familiar." },
   { icon: Scale, title: "Derecho Civil", desc: "Contratos, reclamaciones, herencias, responsabilidad civil y más." },
   { icon: Briefcase, title: "Derecho Laboral", desc: "Despidos, indemnizaciones, ERTEs y negociación colectiva." },
   { icon: Users, title: "Derecho de Familia", desc: "Divorcios, custodia, pensiones y régimen de visitas." },
