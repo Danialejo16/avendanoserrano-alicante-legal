@@ -1,12 +1,43 @@
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+
+    const form = e.currentTarget;
+    const formData = {
+      name: (form.elements.namedItem("name") as HTMLInputElement).value.trim(),
+      phone: (form.elements.namedItem("phone") as HTMLInputElement).value.trim(),
+      email: (form.elements.namedItem("email") as HTMLInputElement).value.trim(),
+      message: (form.elements.namedItem("message") as HTMLTextAreaElement).value.trim(),
+    };
+
+    try {
+      // Save to database
+      const id = crypto.randomUUID();
+      await supabase.from("contact_submissions").insert({ ...formData, id });
+
+      // Send email notification
+      await supabase.functions.invoke("send-contact-email", { body: formData });
+
+      setSubmitted(true);
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "No se pudo enviar el mensaje. Inténtelo de nuevo.",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -60,23 +91,27 @@ const Contact = () => {
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
                     <label className="text-sm font-body text-muted-foreground mb-1.5 block">Nombre</label>
-                    <input type="text" required className="w-full border border-border bg-background rounded px-4 py-3 font-body text-foreground focus:outline-none focus:border-highlight transition-colors" />
+                    <input name="name" type="text" required className="w-full border border-border bg-background rounded px-4 py-3 font-body text-foreground focus:outline-none focus:border-highlight transition-colors" />
                   </div>
                   <div>
                     <label className="text-sm font-body text-muted-foreground mb-1.5 block">Teléfono</label>
-                    <input type="tel" required className="w-full border border-border bg-background rounded px-4 py-3 font-body text-foreground focus:outline-none focus:border-highlight transition-colors" />
+                    <input name="phone" type="tel" required className="w-full border border-border bg-background rounded px-4 py-3 font-body text-foreground focus:outline-none focus:border-highlight transition-colors" />
                   </div>
                 </div>
                 <div>
                   <label className="text-sm font-body text-muted-foreground mb-1.5 block">Email</label>
-                  <input type="email" required className="w-full border border-border bg-background rounded px-4 py-3 font-body text-foreground focus:outline-none focus:border-highlight transition-colors" />
+                  <input name="email" type="email" required className="w-full border border-border bg-background rounded px-4 py-3 font-body text-foreground focus:outline-none focus:border-highlight transition-colors" />
                 </div>
                 <div>
                   <label className="text-sm font-body text-muted-foreground mb-1.5 block">¿Cómo podemos ayudarle?</label>
-                  <textarea rows={5} required className="w-full border border-border bg-background rounded px-4 py-3 font-body text-foreground focus:outline-none focus:border-highlight transition-colors resize-none" />
+                  <textarea name="message" rows={5} required className="w-full border border-border bg-background rounded px-4 py-3 font-body text-foreground focus:outline-none focus:border-highlight transition-colors resize-none" />
                 </div>
-                <button type="submit" className="w-full accent-gradient text-accent-foreground py-3.5 rounded font-semibold text-base hover:opacity-90 transition-opacity">
-                  Enviar consulta gratuita
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full accent-gradient text-accent-foreground py-3.5 rounded font-semibold text-base hover:opacity-90 transition-opacity disabled:opacity-50"
+                >
+                  {loading ? "Enviando..." : "Enviar consulta gratuita"}
                 </button>
               </form>
             )}
