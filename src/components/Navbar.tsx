@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Menu, X, Phone } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,11 +15,8 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-navy-deep/95 backdrop-blur-md border-b border-gold/20">
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-20">
-        <a href="#inicio" className="flex flex-col">
-          <span className="font-heading text-lg md:text-xl font-semibold text-primary-foreground tracking-wide">
-            Avendaño Serrano
-          </span>
-          <span className="text-gold text-xs tracking-[0.3em] uppercase">Abogados</span>
+        <a href="#inicio">
+          <img src={logo} alt="Avendaño Serrano Abogados" className="h-12 md:h-14 w-auto" />
         </a>
 
         {/* Desktop */}
