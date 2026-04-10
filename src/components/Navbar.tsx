@@ -1,15 +1,19 @@
 import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === "/";
 
   const links = [
-    { label: "Inicio", href: "#inicio" },
-    { label: "Servicios", href: "#servicios" },
-    { label: "Sobre Nosotros", href: "#nosotros" },
-    { label: "Contacto", href: "#contacto" },
+    { label: "Inicio", href: isHome ? "#inicio" : "/#inicio" },
+    { label: "Servicios", href: isHome ? "#servicios" : "/#servicios" },
+    { label: "Sobre Nosotros", href: isHome ? "#nosotros" : "/#nosotros" },
+    { label: "Currículum", href: "/curriculum" },
+    { label: "Contacto", href: isHome ? "#contacto" : "/#contacto" },
   ];
 
   return (
