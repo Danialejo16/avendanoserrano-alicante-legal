@@ -19,13 +19,12 @@ const Navbar = () => {
           <img src={logo} alt="Avendaño Serrano Abogados" className="h-12 md:h-14 w-auto" />
         </a>
 
-        {/* Desktop */}
         <div className="hidden md:flex items-center gap-8">
           {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-foreground/70 hover:text-gold transition-colors tracking-wide uppercase"
+              className="text-sm text-foreground/70 hover:text-highlight transition-colors tracking-wide uppercase"
             >
               {link.label}
             </a>
@@ -39,16 +38,11 @@ const Navbar = () => {
           </a>
         </div>
 
-        {/* Mobile toggle */}
-        <button
-          className="md:hidden text-foreground"
-          onClick={() => setIsOpen(!isOpen)}
-        >
+        <button className="md:hidden text-foreground" onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
 
-      {/* Mobile menu */}
       {isOpen && (
         <div className="md:hidden bg-background border-t border-border px-6 pb-6">
           {links.map((link) => (
@@ -56,7 +50,7 @@ const Navbar = () => {
               key={link.href}
               href={link.href}
               onClick={() => setIsOpen(false)}
-              className="block py-3 text-foreground/70 hover:text-gold transition-colors text-sm uppercase tracking-wide"
+              className="block py-3 text-foreground/70 hover:text-highlight transition-colors text-sm uppercase tracking-wide"
             >
               {link.label}
             </a>

@@ -12,18 +12,17 @@ const About = () => {
     <section id="nosotros" className="section-padding bg-primary">
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-[2px] bg-gold" />
-              <span className="text-gold text-sm tracking-[0.3em] uppercase font-body">Sobre nosotros</span>
+              <div className="w-8 h-[2px] bg-highlight" />
+              <span className="text-highlight text-sm tracking-[0.3em] uppercase font-body">Sobre nosotros</span>
             </div>
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground mb-6">
               Un despacho que crece con usted
             </h2>
             <div className="space-y-4 font-body text-base leading-relaxed text-primary-foreground/75">
               <p>
-                <strong className="text-gold">Avendaño Serrano Abogados</strong> nace con la vocación de ofrecer
+                <strong className="text-highlight-light">Avendaño Serrano Abogados</strong> nace con la vocación de ofrecer
                 un servicio jurídico cercano, eficaz y a precios justos en la provincia de Alicante.
               </p>
               <p>
@@ -38,11 +37,10 @@ const About = () => {
             </div>
           </div>
 
-          {/* Right - Values */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {values.map((v) => (
-              <div key={v.title} className="bg-primary-foreground/10 border border-gold/15 rounded-lg p-6">
-                <v.icon className="w-8 h-8 text-gold mb-4" />
+              <div key={v.title} className="bg-primary-foreground/10 border border-highlight/15 rounded-lg p-6">
+                <v.icon className="w-8 h-8 text-highlight mb-4" />
                 <h3 className="font-heading text-lg font-semibold text-primary-foreground mb-2">
                   {v.title}
                 </h3>
