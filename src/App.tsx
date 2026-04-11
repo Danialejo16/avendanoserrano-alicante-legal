@@ -16,11 +16,13 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter basename={import.meta.env.BASE_URL}>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/curriculum" element={<Curriculum />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
+        <PageTransition>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/curriculum" element={<Curriculum />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </PageTransition>
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
