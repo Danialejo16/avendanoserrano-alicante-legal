@@ -7,6 +7,7 @@ import Index from "./pages/Index.tsx";
 import Curriculum from "./pages/Curriculum.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import PageTransition from "./components/PageTransition.tsx";
+import CookieConsent from "./components/CookieConsent.tsx";
 
 const queryClient = new QueryClient();
 
@@ -15,6 +16,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <CookieConsent />
       <BrowserRouter basename={import.meta.env.BASE_URL}>
         <PageTransition>
           <Routes>
