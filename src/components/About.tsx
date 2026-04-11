@@ -26,7 +26,7 @@ const About = () => {
                 un servicio jurídico cercano, eficaz y a precios justos en la provincia de Alicante.
               </p>
               <p>
-                Aunque actualmente somos un despacho unipersonal, nuestra visión es clara: crecer incorporando
+                Aunque actualmente somos un despacho pequeño, nuestra visión es clara: crecer incorporando
                 a los mejores profesionales para seguir ofreciendo un trato personalizado con la capacidad de un
                 gran bufete.
               </p>
