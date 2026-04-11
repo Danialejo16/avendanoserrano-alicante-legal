@@ -61,7 +61,7 @@ const Contact = () => {
           <div className="lg:col-span-2 space-y-8">
             {[
               { icon: MapPin, label: "Dirección", value: "Alicante, España" },
-              { icon: Phone, label: "Teléfono", value: "+34 645 04 16 64" },
+              { icon: Phone, label: "Teléfono", value: "+34 600 000 00" },
               { icon: Mail, label: "Email", value: "info@avendanoserrano.es" },
               { icon: Clock, label: "Horario", value: "L-V: 9:00 – 19:00" },
             ].map((item) => (
