@@ -44,8 +44,8 @@ const skills = [
 
 const languages = [
   { name: "Español", level: "Nativo" },
-  { name: "Valenciano", level: "Nativo" },
-  { name: "Inglés", level: "Intermedio" },
+  { name: "Valenciano", level: "Avanzado" },
+  { name: "Inglés", level: "Intermedio alto" },
 ];
 
 const Curriculum = () => {
