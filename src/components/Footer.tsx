@@ -2,8 +2,8 @@ import { Facebook, Instagram, Linkedin } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const socialLinks = [
-  { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
-  { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
+  { icon: Facebook, href: "https://www.facebook.com/danialejoserrano", label: "Facebook" },
+  { icon: Instagram, href: "https://instagram.com/_danialejo_", label: "Instagram" },
   { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
 ];
 
