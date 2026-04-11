@@ -68,7 +68,7 @@ const Curriculum = () => {
             </div>
             <div>
               <h1 className="font-heading text-3xl md:text-4xl font-bold mb-2">
-                Alejandro Avendaño Serrano
+                Avendaño Serrano
               </h1>
               <p className="text-lg text-primary-foreground/70 font-body mb-4">
                 Abogado · Colegiado ICALI
@@ -78,7 +78,7 @@ const Curriculum = () => {
                   <MapPin className="w-4 h-4 text-highlight" /> Alicante, España
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <Mail className="w-4 h-4 text-highlight" /> alejodle3@gmail.com
+                  <Mail className="w-4 h-4 text-highlight" /> @icali.es
                 </span>
                 <span className="flex items-center gap-1.5">
                   <Phone className="w-4 h-4 text-highlight" /> +34 600 000 000
