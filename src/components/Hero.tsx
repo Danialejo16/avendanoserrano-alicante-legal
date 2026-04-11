@@ -31,7 +31,7 @@ const Hero = () => {
             style={{ animationDelay: "0.5s", opacity: 0 }}
           >
             Todos los servicios jurídicos que necesita con los precios más
-            competitivos de Alicante. Atención personalizada y resultados.
+            competitivos de Alicante. Atención personalizada con los mejores resultados.
           </p>
 
           <div
