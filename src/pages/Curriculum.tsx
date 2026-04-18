@@ -162,7 +162,8 @@ const Curriculum = () => {
             Primera consulta gratuita. Cuéntenos su caso y le orientaremos sin compromiso.
           </p>
           <Link
-            to="/#contacto"
+            to="/"
+            state={{ scrollTo: "contacto" }}
             className="inline-flex items-center gap-2 bg-highlight text-accent-foreground px-7 py-3 rounded font-semibold hover:opacity-90 transition-opacity"
           >
             Contactar ahora
