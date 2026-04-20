@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Star, Loader2, Quote } from "lucide-react";
+import { Star, Loader2, Quote, PenSquare } from "lucide-react";
 import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
@@ -7,6 +7,14 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { useToast } from "@/hooks/use-toast";
 
 interface Review {
@@ -69,6 +77,7 @@ const Reviews = () => {
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [rating, setRating] = useState(0);
+  const [dialogOpen, setDialogOpen] = useState(false);
   const { toast } = useToast();
 
   const fetchReviews = async () => {
@@ -123,6 +132,7 @@ const Reviews = () => {
     toast({ title: "¡Gracias por tu reseña!", description: "Tu opinión es muy importante para nosotros." });
     form.reset();
     setRating(0);
+    setDialogOpen(false);
     fetchReviews();
   };
 
@@ -132,7 +142,7 @@ const Reviews = () => {
   return (
     <section id="reseñas" className="py-20 bg-secondary/20">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
+        <div className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Reseñas de Clientes</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             La confianza de quienes han depositado sus asuntos legales en nuestras manos.
@@ -146,68 +156,80 @@ const Reviews = () => {
               </span>
             </div>
           )}
+
+          <div className="mt-8">
+            <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+              <DialogTrigger asChild>
+                <Button size="lg" className="gap-2">
+                  <PenSquare className="h-4 w-4" />
+                  Deja tu reseña
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-md">
+                <DialogHeader>
+                  <DialogTitle>Deja tu reseña</DialogTitle>
+                  <DialogDescription>
+                    Cuéntanos cómo fue tu experiencia con nuestros servicios.
+                  </DialogDescription>
+                </DialogHeader>
+                <form onSubmit={handleSubmit} className="space-y-4 text-left">
+                  <div>
+                    <Label htmlFor="client_name">Tu nombre</Label>
+                    <Input id="client_name" name="client_name" maxLength={100} required />
+                  </div>
+                  <div>
+                    <Label htmlFor="service">Servicio recibido</Label>
+                    <Input
+                      id="service"
+                      name="service"
+                      placeholder="Ej. Asesoría en derecho civil"
+                      maxLength={100}
+                      required
+                    />
+                  </div>
+                  <div>
+                    <Label>Tu valoración</Label>
+                    <div className="mt-2">
+                      <StarRating value={rating} onChange={setRating} />
+                    </div>
+                  </div>
+                  <div>
+                    <Label htmlFor="comment">Comentario</Label>
+                    <Textarea
+                      id="comment"
+                      name="comment"
+                      rows={4}
+                      maxLength={500}
+                      placeholder="Cuéntanos tu experiencia..."
+                      required
+                    />
+                  </div>
+                  <Button type="submit" disabled={submitting} className="w-full">
+                    {submitting ? <Loader2 className="animate-spin" /> : "Publicar reseña"}
+                  </Button>
+                </form>
+              </DialogContent>
+            </Dialog>
+          </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {/* Formulario */}
-          <Card className="border-border">
-            <CardContent className="p-6">
-              <h3 className="text-xl font-semibold mb-4">Deja tu reseña</h3>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <Label htmlFor="client_name">Tu nombre</Label>
-                  <Input id="client_name" name="client_name" maxLength={100} required />
-                </div>
-                <div>
-                  <Label htmlFor="service">Servicio recibido</Label>
-                  <Input
-                    id="service"
-                    name="service"
-                    placeholder="Ej. Asesoría en derecho civil"
-                    maxLength={100}
-                    required
-                  />
-                </div>
-                <div>
-                  <Label>Tu valoración</Label>
-                  <div className="mt-2">
-                    <StarRating value={rating} onChange={setRating} />
-                  </div>
-                </div>
-                <div>
-                  <Label htmlFor="comment">Comentario</Label>
-                  <Textarea
-                    id="comment"
-                    name="comment"
-                    rows={4}
-                    maxLength={500}
-                    placeholder="Cuéntanos tu experiencia..."
-                    required
-                  />
-                </div>
-                <Button type="submit" disabled={submitting} className="w-full">
-                  {submitting ? <Loader2 className="animate-spin" /> : "Publicar reseña"}
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
-
-          {/* Listado */}
-          <div className="space-y-4 max-h-[600px] overflow-y-auto pr-2">
-            {loading ? (
-              <div className="flex justify-center py-12">
-                <Loader2 className="animate-spin text-muted-foreground" />
-              </div>
-            ) : reviews.length === 0 ? (
-              <Card>
-                <CardContent className="p-8 text-center text-muted-foreground">
-                  Sé el primero en dejar una reseña.
-                </CardContent>
-              </Card>
-            ) : (
-              reviews.map((r) => (
-                <Card key={r.id} className="border-border">
-                  <CardContent className="p-5">
+        {/* Listado en primer plano */}
+        <div className="max-w-6xl mx-auto">
+          {loading ? (
+            <div className="flex justify-center py-12">
+              <Loader2 className="animate-spin text-muted-foreground" />
+            </div>
+          ) : reviews.length === 0 ? (
+            <Card>
+              <CardContent className="p-8 text-center text-muted-foreground">
+                Sé el primero en dejar una reseña.
+              </CardContent>
+            </Card>
+          ) : (
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {reviews.map((r) => (
+                <Card key={r.id} className="border-border h-full">
+                  <CardContent className="p-5 flex flex-col h-full">
                     <div className="flex items-start justify-between mb-2 gap-3">
                       <div>
                         <p className="font-semibold">{r.client_name}</p>
@@ -215,7 +237,7 @@ const Reviews = () => {
                       </div>
                       <StarRating value={r.rating} readOnly size={16} />
                     </div>
-                    <div className="flex gap-2 mt-3">
+                    <div className="flex gap-2 mt-3 flex-1">
                       <Quote className="h-4 w-4 text-primary shrink-0 mt-1" />
                       <p className="text-sm text-foreground/80 leading-relaxed">{r.comment}</p>
                     </div>
@@ -228,9 +250,9 @@ const Reviews = () => {
                     </p>
                   </CardContent>
                 </Card>
-              ))
-            )}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </section>
