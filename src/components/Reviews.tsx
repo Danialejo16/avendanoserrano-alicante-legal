@@ -108,7 +108,7 @@ const Reviews = () => {
       return;
     }
 
-    const { error } = await supabase.from("reviews").insert(parsed.data);
+    const { error } = await supabase.from("reviews").insert(parsed.data as Required<typeof parsed.data>);
     setSubmitting(false);
 
     if (error) {
