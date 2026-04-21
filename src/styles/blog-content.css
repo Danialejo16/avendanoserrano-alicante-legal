@@ -1,0 +1,97 @@
+/* Rendered blog content typography */
+.blog-content {
+  color: hsl(var(--foreground));
+  line-height: 1.75;
+  font-size: 1.0625rem;
+}
+.blog-content h1,
+.blog-content h2,
+.blog-content h3,
+.blog-content h4 {
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  line-height: 1.25;
+  color: hsl(var(--foreground));
+}
+.blog-content h1 { font-size: 2rem; }
+.blog-content h2 { font-size: 1.625rem; }
+.blog-content h3 { font-size: 1.25rem; }
+.blog-content p { margin-bottom: 1.1rem; }
+.blog-content a { color: hsl(var(--primary)); text-decoration: underline; text-underline-offset: 3px; }
+.blog-content ul,
+.blog-content ol { margin: 0 0 1.1rem 1.25rem; padding-left: 1rem; }
+.blog-content ul { list-style: disc; }
+.blog-content ol { list-style: decimal; }
+.blog-content li { margin-bottom: 0.4rem; }
+.blog-content blockquote {
+  border-left: 4px solid hsl(var(--primary));
+  padding: 0.4rem 1rem;
+  margin: 1.25rem 0;
+  font-style: italic;
+  color: hsl(var(--muted-foreground));
+  background: hsl(var(--secondary) / 0.4);
+  border-radius: 0 6px 6px 0;
+}
+.blog-content img {
+  border-radius: 10px;
+  margin: 1.25rem auto;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  box-shadow: 0 4px 16px hsl(var(--foreground) / 0.08);
+}
+.blog-content iframe {
+  display: block;
+  margin: 1.5rem auto;
+  max-width: 100%;
+}
+.blog-content video {
+  width: 100%;
+  border-radius: 10px;
+  margin: 1.25rem 0;
+}
+.blog-content pre {
+  background: hsl(var(--muted));
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 1.25rem 0;
+}
+.blog-content code {
+  background: hsl(var(--muted));
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+.blog-content hr {
+  border: none;
+  border-top: 1px solid hsl(var(--border));
+  margin: 2rem 0;
+}
+
+/* Quill editor in admin: match theme */
+.ql-toolbar.ql-snow,
+.ql-container.ql-snow {
+  border-color: hsl(var(--border)) !important;
+}
+.ql-container.ql-snow {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  min-height: 320px;
+  font-size: 1rem;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+.ql-toolbar.ql-snow {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  background: hsl(var(--secondary) / 0.4);
+}
+.ql-editor {
+  min-height: 320px;
+}
+.ql-editor.ql-blank::before {
+  color: hsl(var(--muted-foreground));
+  font-style: normal;
+}
