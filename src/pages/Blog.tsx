@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { Loader2, ArrowRight, Calendar } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+import { Loader2, ArrowRight, Calendar, Mail } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -19,6 +19,7 @@ interface PostListItem {
 const Blog = () => {
   const [posts, setPosts] = useState<PostListItem[]>([]);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     (async () => {
@@ -100,6 +101,30 @@ const Blog = () => {
               ))}
             </div>
           )}
+
+          <div className="mt-20">
+            <button
+              onClick={() => navigate("/", { state: { scrollTo: "contacto" } })}
+              className="w-full text-left bg-card border border-border rounded-xl p-8 md:p-10 hover:border-highlight hover:shadow-lg transition-all duration-300 group"
+            >
+              <div className="flex flex-col md:flex-row md:items-center gap-6">
+                <div className="w-14 h-14 rounded-lg bg-navy-deep flex items-center justify-center flex-shrink-0">
+                  <Mail className="w-6 h-6 text-highlight-light" />
+                </div>
+                <div className="flex-1">
+                  <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-2">
+                    ¿Tiene una consulta legal?
+                  </h2>
+                  <p className="text-muted-foreground font-body">
+                    Contacte con nosotros para una primera consulta gratuita y sin compromiso.
+                  </p>
+                </div>
+                <span className="inline-flex items-center gap-2 text-highlight font-semibold group-hover:translate-x-1 transition-transform">
+                  Ir al contacto <ArrowRight className="w-4 h-4" />
+                </span>
+              </div>
+            </button>
+          </div>
         </div>
       </main>
       <Footer />
