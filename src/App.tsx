@@ -14,6 +14,7 @@ import BlogPost from "./pages/BlogPost.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import PageTransition from "./components/PageTransition.tsx";
 import CookieConsent from "./components/CookieConsent.tsx";
+import LegalChatbot from "./components/LegalChatbot.tsx";
 
 const queryClient = new QueryClient();
 
@@ -37,6 +38,7 @@ const App = () => (
             <Route path="*" element={<NotFound />} />
           </Routes>
         </PageTransition>
+        <LegalChatbot />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
