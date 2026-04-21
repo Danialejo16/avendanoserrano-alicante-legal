@@ -136,9 +136,14 @@ const Admin = () => {
               {reviews.length} {reviews.length === 1 ? "reseña" : "reseñas"} en total
             </p>
           </div>
-          <Button variant="outline" onClick={handleLogout}>
-            <LogOut className="h-4 w-4" /> Cerrar sesión
-          </Button>
+          <div className="flex items-center gap-2 flex-wrap">
+            <Button variant="default" onClick={() => navigate("/admin/blog")}>
+              Gestionar blog
+            </Button>
+            <Button variant="outline" onClick={handleLogout}>
+              <LogOut className="h-4 w-4" /> Cerrar sesión
+            </Button>
+          </div>
         </div>
 
         {reviews.length === 0 ? (
