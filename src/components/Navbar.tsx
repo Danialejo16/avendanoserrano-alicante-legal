@@ -13,6 +13,7 @@ const Navbar = () => {
     { label: "Servicios", href: isHome ? "#servicios" : "/#servicios" },
     { label: "Sobre Nosotros", href: isHome ? "#nosotros" : "/#nosotros" },
     { label: "Currículum", href: "/curriculum" },
+    { label: "Blog", href: "/blog" },
     { label: "Contacto", href: isHome ? "#contacto" : "/#contacto" },
   ];
 
