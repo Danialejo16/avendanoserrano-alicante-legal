@@ -43,15 +43,24 @@ const BlogPost = () => {
   // SEO
   useEffect(() => {
     if (!post) return;
+    const previousTitle = document.title;
+    const metaEl = document.querySelector('meta[name="description"]');
+    const previousDesc = metaEl?.getAttribute("content") ?? "";
+
     document.title = `${post.title} | Avendaño Serrano Abogados`;
     const desc = post.excerpt?.slice(0, 155) ?? post.title;
-    let meta = document.querySelector('meta[name="description"]');
+    let meta = metaEl;
     if (!meta) {
       meta = document.createElement("meta");
       meta.setAttribute("name", "description");
       document.head.appendChild(meta);
     }
     meta.setAttribute("content", desc);
+
+    return () => {
+      document.title = previousTitle;
+      if (meta && previousDesc) meta.setAttribute("content", previousDesc);
+    };
   }, [post]);
 
   return (
