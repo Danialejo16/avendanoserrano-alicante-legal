@@ -9,5 +9,6 @@ PUNTOS A CAMBIAR:
 - Añadir foto de perfil a "Currículum"
 - Cambiar datos de contacto en barra superior
 - Comprar y configurar dominio
+- Añadir linkedin
   
 https://danialejo16.github.io/avendanoserrano-alicante-legal/
