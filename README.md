@@ -8,5 +8,6 @@ PUNTOS A CAMBIAR:
 - Datos académicos en "Currículum"
 - Añadir foto de perfil a "Currículum"
 - Cambiar datos de contacto en barra superior
+- Comprar y configurar dominio
   
 https://danialejo16.github.io/avendanoserrano-alicante-legal/
