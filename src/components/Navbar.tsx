@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, Phone } from "lucide-react";
 import logo from "@/assets/logo.png";
+import TopContactBar from "./TopContactBar";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
