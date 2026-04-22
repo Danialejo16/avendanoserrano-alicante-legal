@@ -2,46 +2,53 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import { Shield } from "lucide-react";
-
-type CookiePreferences = {
-  necessary: boolean;
-  analytics: boolean;
-  marketing: boolean;
-};
+import {
+  CookiePreferences,
+  DEFAULT_PREFERENCES,
+  getConsent,
+  setConsent,
+  onOpenCookieSettings,
+} from "@/lib/cookies";
 
 const CookieConsent = () => {
   const [visible, setVisible] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
-  const [preferences, setPreferences] = useState<CookiePreferences>({
-    necessary: true,
-    analytics: false,
-    marketing: false,
-  });
+  const [preferences, setPreferences] =
+    useState<CookiePreferences>(DEFAULT_PREFERENCES);
 
   useEffect(() => {
-    const consent = localStorage.getItem("cookie-consent");
-    if (!consent) {
+    const existing = getConsent();
+    if (!existing) {
       const timer = setTimeout(() => setVisible(true), 800);
       return () => clearTimeout(timer);
     }
+    setPreferences(existing);
+  }, []);
+
+  // Allow other components (e.g. footer link) to reopen the panel.
+  useEffect(() => {
+    return onOpenCookieSettings(() => {
+      const existing = getConsent();
+      if (existing) setPreferences(existing);
+      setShowDetails(true);
+      setVisible(true);
+    });
   }, []);
 
   const saveAndClose = (prefs: CookiePreferences) => {
-    localStorage.setItem("cookie-consent", JSON.stringify(prefs));
+    setConsent(prefs);
+    setPreferences(prefs);
     setVisible(false);
+    setShowDetails(false);
   };
 
-  const handleAcceptAll = () => {
+  const handleAcceptAll = () =>
     saveAndClose({ necessary: true, analytics: true, marketing: true });
-  };
 
-  const handleRejectAll = () => {
+  const handleRejectAll = () =>
     saveAndClose({ necessary: true, analytics: false, marketing: false });
-  };
 
-  const handleSavePreferences = () => {
-    saveAndClose(preferences);
-  };
+  const handleSavePreferences = () => saveAndClose(preferences);
 
   if (!visible) return null;
 
@@ -143,14 +150,8 @@ const CookieConsent = () => {
         </div>
 
         <p className="text-xs text-muted-foreground mt-4 text-center">
-          Consulte nuestra{" "}
-          <button
-            onClick={() => setShowDetails(!showDetails)}
-            className="underline hover:text-foreground transition-colors"
-          >
-            política de privacidad
-          </button>{" "}
-          para más información sobre el tratamiento de datos.
+          Puede modificar sus preferencias en cualquier momento desde el enlace
+          “Configurar cookies” en el pie de página.
         </p>
       </div>
     </div>

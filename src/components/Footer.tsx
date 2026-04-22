@@ -1,5 +1,6 @@
 import { Facebook, Instagram, Linkedin } from "lucide-react";
 import logo from "@/assets/logo.png";
+import { openCookieSettings } from "@/lib/cookies";
 
 const socialLinks = [
   { icon: Facebook, href: "https://www.facebook.com/danialejoserrano", label: "Facebook" },
@@ -28,9 +29,17 @@ const Footer = () => {
           ))}
         </div>
 
-        <p className="font-body text-sm text-muted-foreground">
-          © {new Date().getFullYear()} Avendaño Serrano Abogados. Todos los derechos reservados.
-        </p>
+        <div className="flex flex-col md:items-end items-center gap-2">
+          <p className="font-body text-sm text-muted-foreground text-center md:text-right">
+            © {new Date().getFullYear()} Avendaño Serrano Abogados. Todos los derechos reservados.
+          </p>
+          <button
+            onClick={openCookieSettings}
+            className="font-body text-xs text-muted-foreground hover:text-foreground underline underline-offset-2 transition-colors"
+          >
+            Configurar cookies
+          </button>
+        </div>
       </div>
     </footer>
   );
