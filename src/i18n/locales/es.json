@@ -1,0 +1,169 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "about": "Sobre Nosotros",
+    "curriculum": "Currículum",
+    "blog": "Blog",
+    "contact": "Contacto",
+    "callNow": "Llamar ahora"
+  },
+  "topBar": {
+    "showLabel": "Contacto",
+    "hideAria": "Ocultar barra de contacto",
+    "showAria": "Mostrar barra de contacto"
+  },
+  "hero": {
+    "tagline": "Abogados en Alicante",
+    "titlePart1": "Defendemos sus derechos con",
+    "titleWord1": "compromiso",
+    "titleAnd": "y",
+    "titleWord2": "excelencia",
+    "subtitle": "Todos los servicios jurídicos que necesita con los precios más competitivos de Alicante. Atención personalizada con los mejores resultados.",
+    "ctaPrimary": "Consulta gratuita",
+    "ctaSecondary": "Nuestros servicios"
+  },
+  "services": {
+    "tagline": "Áreas de práctica",
+    "title": "Servicios Jurídicos Integrales",
+    "subtitle": "Ofrecemos asesoramiento legal completo con los precios más competitivos de Alicante, sin renunciar a la calidad.",
+    "items": {
+      "extranjeria": { "title": "Derecho de Extranjería", "desc": "Permisos de residencia, visados, nacionalidad, arraigo y reagrupación familiar." },
+      "civil": { "title": "Derecho Civil", "desc": "Contratos, reclamaciones, herencias, responsabilidad civil y más." },
+      "laboral": { "title": "Derecho Laboral", "desc": "Despidos, indemnizaciones, ERTEs y negociación colectiva." },
+      "familia": { "title": "Derecho de Familia", "desc": "Divorcios, custodia, pensiones y régimen de visitas." },
+      "penal": { "title": "Derecho Penal", "desc": "Defensa penal, denuncias, juicios rápidos y recursos." },
+      "inmobiliario": { "title": "Derecho Inmobiliario", "desc": "Compraventas, arrendamientos, comunidades de propietarios." },
+      "administrativo": { "title": "Derecho Administrativo", "desc": "Recursos, sanciones, licencias y relaciones con la administración." },
+      "mercantil": { "title": "Derecho Mercantil", "desc": "Constitución de sociedades, contratos mercantiles y concursos." },
+      "trafico": { "title": "Accidentes de Tráfico", "desc": "Reclamaciones a seguros, indemnizaciones y lesiones." }
+    }
+  },
+  "about": {
+    "tagline": "Sobre nosotros",
+    "title": "Un despacho que crece con usted",
+    "p1Brand": "Avendaño Serrano Abogados",
+    "p1Rest": "nace con la vocación de ofrecer un servicio jurídico cercano, eficaz y a precios justos en la provincia de Alicante.",
+    "p2": "Aunque actualmente somos un despacho pequeño, nuestra visión es clara: crecer incorporando a los mejores profesionales para seguir ofreciendo un trato personalizado con la capacidad de un gran bufete.",
+    "p3": "Creemos que el acceso a una defensa legal de calidad no debería ser un lujo. Por eso ofrecemos los precios más competitivos de la zona, con primera consulta gratuita.",
+    "values": {
+      "commitment": { "title": "Compromiso", "desc": "Cada caso es tratado con dedicación y rigor profesional." },
+      "availability": { "title": "Disponibilidad", "desc": "Atención ágil y respuesta inmediata cuando nos necesite." },
+      "prices": { "title": "Precios Competitivos", "desc": "Los mejores precios de Alicante sin renunciar a la excelencia." },
+      "results": { "title": "Resultados", "desc": "Orientados a obtener el mejor resultado para nuestros clientes." }
+    }
+  },
+  "contact": {
+    "tagline": "Contacto",
+    "title": "Primera consulta gratuita",
+    "subtitle": "Cuéntenos su caso sin compromiso. Le asesoraremos sobre la mejor estrategia legal.",
+    "address": "Dirección",
+    "addressValue": "Alicante, España",
+    "phone": "Teléfono",
+    "email": "Email",
+    "hours": "Horario",
+    "hoursValue": "L-V: 9:00 – 19:00",
+    "name": "Nombre",
+    "phoneField": "Teléfono",
+    "emailField": "Email",
+    "help": "¿Cómo podemos ayudarle?",
+    "submit": "Enviar consulta gratuita",
+    "submitting": "Enviando...",
+    "successTitle": "¡Mensaje enviado!",
+    "successText": "Nos pondremos en contacto lo antes posible.",
+    "errorTitle": "Error",
+    "errorText": "No se pudo enviar el mensaje. Inténtelo de nuevo."
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados.",
+    "cookies": "Configurar cookies"
+  },
+  "cookies": {
+    "title": "Política de Cookies",
+    "intro": "Utilizamos cookies para mejorar su experiencia de navegación, analizar el tráfico del sitio y personalizar el contenido. Puede aceptar todas, rechazarlas o configurar sus preferencias.",
+    "necessary": "Necesarias",
+    "necessaryDesc": "Imprescindibles para el funcionamiento del sitio",
+    "analytics": "Analíticas",
+    "analyticsDesc": "Nos ayudan a entender cómo usa el sitio",
+    "marketing": "Marketing",
+    "marketingDesc": "Permiten mostrar contenido personalizado",
+    "save": "Guardar preferencias",
+    "reject": "Rechazar",
+    "configure": "Configurar",
+    "acceptAll": "Aceptar todo",
+    "footnote": "Puede modificar sus preferencias en cualquier momento desde el enlace \"Configurar cookies\" en el pie de página."
+  },
+  "chat": {
+    "open": "¿Necesita ayuda legal?",
+    "openAria": "Abrir asistente legal",
+    "hide": "Ocultar",
+    "hideAria": "Ocultar asistente",
+    "title": "Asistente Legal",
+    "subtitle": "Avendaño Serrano Abogados",
+    "close": "Cerrar chat",
+    "greeting": "¡Hola! Soy el asistente virtual de Avendaño Serrano Abogados. ¿Sobre qué tema legal le gustaría informarse?",
+    "continue": "¿Cómo prefiere continuar? Puede contactarnos directamente o explorar otro tema.",
+    "anotherIntro": "Por supuesto. ¿Sobre qué otro tema legal le gustaría informarse?",
+    "another": "Consultar otro tema",
+    "contactUs": "Contacte con nosotros",
+    "form": "Formulario",
+    "call": "Llamar",
+    "whatsapp": "WhatsApp",
+    "hidePermanent": "Ocultar asistente permanentemente",
+    "whatsappMessage": "Hola, me gustaría recibir asesoramiento legal.",
+    "topics": {
+      "familia": { "label": "Derecho de Familia", "answer": "Asesoramos en divorcios, separaciones, custodia de menores, pensiones de alimentos y modificaciones de medidas. Cada caso familiar es único y requiere una estrategia personalizada para proteger sus intereses y los de sus seres queridos." },
+      "penal": { "label": "Derecho Penal", "answer": "Le defendemos en cualquier procedimiento penal: delitos contra la seguridad vial, lesiones, delitos económicos, violencia doméstica y más. Asistencia 24h en comisaría y juzgados de guardia." },
+      "civil": { "label": "Derecho Civil", "answer": "Reclamaciones de cantidad, contratos, herencias, desahucios, responsabilidad civil y derechos reales. Resolvemos conflictos civiles buscando siempre la solución más eficiente para usted." },
+      "laboral": { "label": "Derecho Laboral", "answer": "Despidos, reclamaciones de salarios, accidentes laborales, incapacidades, acoso laboral y negociación colectiva. Defendemos sus derechos como trabajador o asesoramos a su empresa." },
+      "extranjeria": { "label": "Extranjería", "answer": "Permisos de residencia, nacionalidad española, reagrupación familiar, recursos contra denegaciones y arraigos. Le acompañamos en todo el proceso administrativo." },
+      "mercantil": { "label": "Derecho Mercantil", "answer": "Constitución de sociedades, contratos mercantiles, reclamaciones entre empresas, concursos de acreedores y asesoramiento continuado a empresas y autónomos." },
+      "otro": { "label": "Otra consulta", "answer": "Atendemos cualquier consulta legal. Contacte con nosotros y le diremos cómo podemos ayudarle. La primera consulta es siempre gratuita y sin compromiso." }
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Reflexiones, novedades y análisis sobre el ámbito legal por Avendaño Serrano Abogados.",
+    "empty": "Aún no hay publicaciones. Vuelve pronto.",
+    "readMore": "Leer más",
+    "ctaTitle": "¿Tiene una consulta legal?",
+    "ctaText": "Contacte con nosotros para una primera consulta gratuita y sin compromiso.",
+    "ctaButton": "Ir al contacto"
+  },
+  "curriculum": {
+    "back": "Volver al inicio",
+    "name": "Avendaño Serrano",
+    "role": "Abogado · Colegiado ICALI",
+    "location": "Alicante, España",
+    "profile": "Perfil Profesional",
+    "profileText": "Abogado ejerciente con vocación por el servicio al cliente, especializado en derecho de extranjería, derecho civil y derecho laboral. Fundador de Avendaño Serrano Abogados, un despacho comprometido con ofrecer asesoramiento legal de calidad a precios accesibles en la provincia de Alicante. Orientado a resultados y con una fuerte capacidad de negociación y resolución de conflictos.",
+    "experience": "Experiencia Profesional",
+    "education": "Formación Académica",
+    "skills": "Áreas de Especialización",
+    "languages": "Idiomas",
+    "ctaTitle": "¿Necesita asesoramiento legal?",
+    "ctaText": "Primera consulta gratuita. Cuéntenos su caso y le orientaremos sin compromiso.",
+    "ctaButton": "Contactar ahora"
+  },
+  "reviews": {
+    "title": "Reseñas de Clientes",
+    "subtitle": "La confianza de quienes han depositado sus asuntos legales en nuestras manos.",
+    "reviewSingular": "reseña",
+    "reviewPlural": "reseñas",
+    "leave": "Deja tu reseña",
+    "dialogTitle": "Deja tu reseña",
+    "dialogDesc": "Cuéntanos cómo fue tu experiencia con nuestros servicios.",
+    "yourName": "Tu nombre",
+    "service": "Servicio recibido",
+    "servicePlaceholder": "Ej. Asesoría en derecho civil",
+    "rating": "Tu valoración",
+    "comment": "Comentario",
+    "commentPlaceholder": "Cuéntanos tu experiencia...",
+    "publish": "Publicar reseña",
+    "empty": "Sé el primero en dejar una reseña."
+  },
+  "language": {
+    "label": "Idioma",
+    "select": "Seleccionar idioma"
+  }
+}

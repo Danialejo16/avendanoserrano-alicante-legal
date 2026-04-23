@@ -1,0 +1,169 @@
+{
+  "nav": {
+    "home": "首页",
+    "services": "服务",
+    "about": "关于我们",
+    "curriculum": "简历",
+    "blog": "博客",
+    "contact": "联系",
+    "callNow": "立即致电"
+  },
+  "topBar": {
+    "showLabel": "联系",
+    "hideAria": "隐藏联系栏",
+    "showAria": "显示联系栏"
+  },
+  "hero": {
+    "tagline": "阿利坎特律师",
+    "titlePart1": "我们以",
+    "titleWord1": "承诺",
+    "titleAnd": "和",
+    "titleWord2": "卓越",
+    "subtitle": "您所需的所有法律服务,以阿利坎特最具竞争力的价格提供。个性化关怀,最佳结果。",
+    "ctaPrimary": "免费咨询",
+    "ctaSecondary": "我们的服务"
+  },
+  "services": {
+    "tagline": "执业领域",
+    "title": "全面的法律服务",
+    "subtitle": "我们以阿利坎特最具竞争力的价格提供完整的法律咨询,绝不放弃质量。",
+    "items": {
+      "extranjeria": { "title": "外国人法", "desc": "居留许可、签证、国籍、扎根和家庭团聚。" },
+      "civil": { "title": "民法", "desc": "合同、索赔、继承、民事责任等。" },
+      "laboral": { "title": "劳动法", "desc": "解雇、赔偿、临时停工和集体谈判。" },
+      "familia": { "title": "家庭法", "desc": "离婚、抚养权、赡养费和探视权。" },
+      "penal": { "title": "刑法", "desc": "刑事辩护、控告、快速审判和上诉。" },
+      "inmobiliario": { "title": "房地产法", "desc": "买卖、租赁、业主协会。" },
+      "administrativo": { "title": "行政法", "desc": "上诉、处罚、许可证和与行政部门的关系。" },
+      "mercantil": { "title": "商法", "desc": "公司设立、商业合同和破产。" },
+      "trafico": { "title": "交通事故", "desc": "保险索赔、赔偿和伤害。" }
+    }
+  },
+  "about": {
+    "tagline": "关于我们",
+    "title": "与您共同成长的事务所",
+    "p1Brand": "Avendaño Serrano 律师事务所",
+    "p1Rest": "致力于在阿利坎特省提供贴心、高效且价格公道的法律服务。",
+    "p2": "虽然我们目前是一家小型事务所,但我们的愿景明确:吸纳最优秀的专业人才,继续以大型律所的能力提供个性化服务。",
+    "p3": "我们相信优质的法律辩护不应是一种奢侈。因此我们提供该地区最具竞争力的价格,首次咨询免费。",
+    "values": {
+      "commitment": { "title": "承诺", "desc": "每个案件都以专注和专业严谨态度处理。" },
+      "availability": { "title": "可用性", "desc": "需要我们时,快速响应并立即处理。" },
+      "prices": { "title": "有竞争力的价格", "desc": "阿利坎特最优惠的价格,绝不放弃卓越。" },
+      "results": { "title": "结果", "desc": "致力于为客户取得最佳结果。" }
+    }
+  },
+  "contact": {
+    "tagline": "联系",
+    "title": "首次咨询免费",
+    "subtitle": "请告诉我们您的案件,无需承诺。我们将为您提供最佳法律策略建议。",
+    "address": "地址",
+    "addressValue": "西班牙阿利坎特",
+    "phone": "电话",
+    "email": "电子邮件",
+    "hours": "营业时间",
+    "hoursValue": "周一至周五: 9:00 – 19:00",
+    "name": "姓名",
+    "phoneField": "电话",
+    "emailField": "电子邮件",
+    "help": "我们能为您做些什么?",
+    "submit": "发送免费咨询",
+    "submitting": "发送中...",
+    "successTitle": "消息已发送!",
+    "successText": "我们将尽快与您联系。",
+    "errorTitle": "错误",
+    "errorText": "无法发送消息,请重试。"
+  },
+  "footer": {
+    "rights": "保留所有权利。",
+    "cookies": "Cookie 设置"
+  },
+  "cookies": {
+    "title": "Cookie 政策",
+    "intro": "我们使用 Cookie 改善您的浏览体验、分析网站流量和个性化内容。您可以全部接受、拒绝或配置您的偏好。",
+    "necessary": "必要",
+    "necessaryDesc": "网站运行所必需",
+    "analytics": "分析",
+    "analyticsDesc": "帮助我们了解您如何使用网站",
+    "marketing": "营销",
+    "marketingDesc": "允许显示个性化内容",
+    "save": "保存偏好",
+    "reject": "拒绝",
+    "configure": "配置",
+    "acceptAll": "全部接受",
+    "footnote": "您可以随时通过页脚的 \"Cookie 设置\" 链接修改您的偏好。"
+  },
+  "chat": {
+    "open": "需要法律帮助吗?",
+    "openAria": "打开法律助手",
+    "hide": "隐藏",
+    "hideAria": "隐藏助手",
+    "title": "法律助手",
+    "subtitle": "Avendaño Serrano 律师事务所",
+    "close": "关闭聊天",
+    "greeting": "您好!我是 Avendaño Serrano 律师事务所的虚拟助手。您想了解哪个法律主题?",
+    "continue": "您希望如何继续?可以直接联系我们或浏览其他主题。",
+    "anotherIntro": "当然可以。您还想了解哪个法律主题?",
+    "another": "咨询其他主题",
+    "contactUs": "联系我们",
+    "form": "表单",
+    "call": "致电",
+    "whatsapp": "WhatsApp",
+    "hidePermanent": "永久隐藏助手",
+    "whatsappMessage": "您好,我希望获得法律咨询。",
+    "topics": {
+      "familia": { "label": "家庭法", "answer": "我们提供离婚、分居、子女抚养权、赡养费和措施修改方面的咨询。每个家庭案件都是独特的,需要个性化策略来保护您及您所爱之人的利益。" },
+      "penal": { "label": "刑法", "answer": "我们在任何刑事程序中为您辩护:交通安全犯罪、伤害、经济犯罪、家庭暴力等。警察局和值班法院 24 小时援助。" },
+      "civil": { "label": "民法", "answer": "金钱索赔、合同、继承、驱逐、民事责任和物权。我们以最有效的方式解决民事纠纷。" },
+      "laboral": { "label": "劳动法", "answer": "解雇、工资索赔、工伤、残疾、工作场所骚扰和集体谈判。我们捍卫您作为员工的权利或为您的公司提供咨询。" },
+      "extranjeria": { "label": "外国人法", "answer": "居留许可、西班牙国籍、家庭团聚、对拒绝的上诉和扎根。我们陪伴您完成整个行政程序。" },
+      "mercantil": { "label": "商法", "answer": "公司设立、商业合同、公司间索赔、破产程序以及对企业和自雇人士的持续咨询。" },
+      "otro": { "label": "其他咨询", "answer": "我们处理任何法律咨询。请联系我们,我们会告诉您如何提供帮助。首次咨询始终免费且无任何承诺。" }
+    }
+  },
+  "blog": {
+    "title": "博客",
+    "subtitle": "Avendaño Serrano 律师事务所关于法律领域的反思、新闻和分析。",
+    "empty": "暂无文章。请稍后再来。",
+    "readMore": "阅读更多",
+    "ctaTitle": "有法律咨询?",
+    "ctaText": "联系我们获得免费首次咨询,无任何承诺。",
+    "ctaButton": "前往联系"
+  },
+  "curriculum": {
+    "back": "返回首页",
+    "name": "Avendaño Serrano",
+    "role": "律师 · ICALI 注册会员",
+    "location": "西班牙阿利坎特",
+    "profile": "专业简介",
+    "profileText": "执业律师,致力于客户服务,专注于外国人法、民法和劳动法。Avendaño Serrano 律师事务所创始人,致力于在阿利坎特省以可负担的价格提供高质量的法律咨询。注重结果,具有强大的谈判和冲突解决能力。",
+    "experience": "工作经历",
+    "education": "教育背景",
+    "skills": "专业领域",
+    "languages": "语言",
+    "ctaTitle": "需要法律咨询?",
+    "ctaText": "首次咨询免费。告诉我们您的案件,我们将无任何承诺地为您指导。",
+    "ctaButton": "立即联系"
+  },
+  "reviews": {
+    "title": "客户评价",
+    "subtitle": "那些将法律事务托付给我们的人的信任。",
+    "reviewSingular": "评价",
+    "reviewPlural": "评价",
+    "leave": "留下您的评价",
+    "dialogTitle": "留下您的评价",
+    "dialogDesc": "告诉我们您使用我们服务的体验。",
+    "yourName": "您的姓名",
+    "service": "接受的服务",
+    "servicePlaceholder": "例如:民法咨询",
+    "rating": "您的评分",
+    "comment": "评论",
+    "commentPlaceholder": "告诉我们您的体验...",
+    "publish": "发布评价",
+    "empty": "成为第一个留下评价的人。"
+  },
+  "language": {
+    "label": "语言",
+    "select": "选择语言"
+  }
+}
