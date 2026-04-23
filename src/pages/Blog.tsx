@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Loader2, ArrowRight, Calendar, Mail } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { supabase } from "@/integrations/supabase/client";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -16,10 +17,20 @@ interface PostListItem {
   created_at: string;
 }
 
+const localeMap: Record<string, string> = {
+  es: "es-ES",
+  en: "en-GB",
+  ar: "ar",
+  ru: "ru-RU",
+  zh: "zh-CN",
+};
+
 const Blog = () => {
   const [posts, setPosts] = useState<PostListItem[]>([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+  const { t, i18n } = useTranslation();
+  const dateLocale = localeMap[i18n.language] ?? "es-ES";
 
   useEffect(() => {
     (async () => {
@@ -40,9 +51,9 @@ const Blog = () => {
       <main className="pt-28 pb-20">
         <div className="container mx-auto px-6 md:px-12 max-w-6xl">
           <header className="mb-12 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Blog</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">{t("blog.title")}</h1>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Reflexiones, novedades y análisis sobre el ámbito legal por Avendaño Serrano Abogados.
+              {t("blog.subtitle")}
             </p>
           </header>
 
@@ -53,7 +64,7 @@ const Blog = () => {
           ) : posts.length === 0 ? (
             <Card>
               <CardContent className="p-12 text-center text-muted-foreground">
-                Aún no hay publicaciones. Vuelve pronto.
+                {t("blog.empty")}
               </CardContent>
             </Card>
           ) : (
@@ -79,7 +90,7 @@ const Blog = () => {
                   <div className="p-6 flex flex-col flex-1">
                     <div className="flex items-center gap-2 text-xs text-muted-foreground mb-3">
                       <Calendar className="h-3 w-3" />
-                      {new Date(p.published_at ?? p.created_at).toLocaleDateString("es-ES", {
+                      {new Date(p.published_at ?? p.created_at).toLocaleDateString(dateLocale, {
                         day: "numeric",
                         month: "long",
                         year: "numeric",
@@ -94,7 +105,7 @@ const Blog = () => {
                       </p>
                     )}
                     <span className="inline-flex items-center gap-1 mt-4 text-sm font-medium text-primary">
-                      Leer más <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-1" />
+                      {t("blog.readMore")} <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-1" />
                     </span>
                   </div>
                 </Link>
@@ -113,14 +124,14 @@ const Blog = () => {
                 </div>
                 <div className="flex-1">
                   <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground mb-2">
-                    ¿Tiene una consulta legal?
+                    {t("blog.ctaTitle")}
                   </h2>
                   <p className="text-muted-foreground font-body">
-                    Contacte con nosotros para una primera consulta gratuita y sin compromiso.
+                    {t("blog.ctaText")}
                   </p>
                 </div>
                 <span className="inline-flex items-center gap-2 text-highlight font-semibold group-hover:translate-x-1 transition-transform">
-                  Ir al contacto <ArrowRight className="w-4 h-4" />
+                  {t("blog.ctaButton")} <ArrowRight className="w-4 h-4" />
                 </span>
               </div>
             </button>

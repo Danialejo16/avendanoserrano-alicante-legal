@@ -1,4 +1,5 @@
 import { Facebook, Instagram, Linkedin } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import logo from "@/assets/logo.png";
 import { openCookieSettings } from "@/lib/cookies";
 
@@ -9,6 +10,7 @@ const socialLinks = [
 ];
 
 const Footer = () => {
+  const { t } = useTranslation();
   return (
     <footer className="bg-secondary border-t border-border py-12 px-6 md:px-12">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
@@ -31,13 +33,13 @@ const Footer = () => {
 
         <div className="flex flex-col md:items-end items-center gap-2">
           <p className="font-body text-sm text-muted-foreground text-center md:text-right">
-            © {new Date().getFullYear()} Avendaño Serrano Abogados. Todos los derechos reservados.
+            © {new Date().getFullYear()} Avendaño Serrano Abogados. {t("footer.rights")}
           </p>
           <button
             onClick={openCookieSettings}
             className="font-body text-xs text-muted-foreground hover:text-foreground underline underline-offset-2 transition-colors"
           >
-            Configurar cookies
+            {t("footer.cookies")}
           </button>
         </div>
       </div>

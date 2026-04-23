@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import { Shield } from "lucide-react";
@@ -11,6 +12,7 @@ import {
 } from "@/lib/cookies";
 
 const CookieConsent = () => {
+  const { t } = useTranslation();
   const [visible, setVisible] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
   const [preferences, setPreferences] =
@@ -25,7 +27,6 @@ const CookieConsent = () => {
     setPreferences(existing);
   }, []);
 
-  // Allow other components (e.g. footer link) to reopen the panel.
   useEffect(() => {
     return onOpenCookieSettings(() => {
       const existing = getConsent();
@@ -64,32 +65,27 @@ const CookieConsent = () => {
             <Shield className="w-5 h-5 text-primary" />
           </div>
           <h3 className="font-heading text-lg font-semibold text-foreground">
-            Política de Cookies
+            {t("cookies.title")}
           </h3>
         </div>
 
         <p className="text-sm text-muted-foreground mb-5 leading-relaxed">
-          Utilizamos cookies para mejorar su experiencia de navegación, analizar el tráfico del sitio
-          y personalizar el contenido. Puede aceptar todas, rechazarlas o configurar sus preferencias.
+          {t("cookies.intro")}
         </p>
 
         {showDetails && (
           <div className="space-y-4 mb-5 p-4 rounded-lg bg-muted/50 border border-border animate-in fade-in slide-in-from-top-2 duration-300">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-foreground">Necesarias</p>
-                <p className="text-xs text-muted-foreground">
-                  Imprescindibles para el funcionamiento del sitio
-                </p>
+                <p className="text-sm font-medium text-foreground">{t("cookies.necessary")}</p>
+                <p className="text-xs text-muted-foreground">{t("cookies.necessaryDesc")}</p>
               </div>
               <Switch checked disabled />
             </div>
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-foreground">Analíticas</p>
-                <p className="text-xs text-muted-foreground">
-                  Nos ayudan a entender cómo usa el sitio
-                </p>
+                <p className="text-sm font-medium text-foreground">{t("cookies.analytics")}</p>
+                <p className="text-xs text-muted-foreground">{t("cookies.analyticsDesc")}</p>
               </div>
               <Switch
                 checked={preferences.analytics}
@@ -100,10 +96,8 @@ const CookieConsent = () => {
             </div>
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-foreground">Marketing</p>
-                <p className="text-xs text-muted-foreground">
-                  Permiten mostrar contenido personalizado
-                </p>
+                <p className="text-sm font-medium text-foreground">{t("cookies.marketing")}</p>
+                <p className="text-xs text-muted-foreground">{t("cookies.marketingDesc")}</p>
               </div>
               <Switch
                 checked={preferences.marketing}
@@ -121,7 +115,7 @@ const CookieConsent = () => {
               onClick={handleSavePreferences}
               className="flex-1 bg-primary text-primary-foreground hover:bg-primary/90"
             >
-              Guardar preferencias
+              {t("cookies.save")}
             </Button>
           ) : (
             <>
@@ -130,28 +124,27 @@ const CookieConsent = () => {
                 onClick={handleRejectAll}
                 className="flex-1 border-border text-foreground hover:bg-muted"
               >
-                Rechazar
+                {t("cookies.reject")}
               </Button>
               <Button
                 variant="outline"
                 onClick={() => setShowDetails(true)}
                 className="flex-1 border-border text-foreground hover:bg-muted"
               >
-                Configurar
+                {t("cookies.configure")}
               </Button>
               <Button
                 onClick={handleAcceptAll}
                 className="flex-1 bg-primary text-primary-foreground hover:bg-primary/90"
               >
-                Aceptar todo
+                {t("cookies.acceptAll")}
               </Button>
             </>
           )}
         </div>
 
         <p className="text-xs text-muted-foreground mt-4 text-center">
-          Puede modificar sus preferencias en cualquier momento desde el enlace
-          “Configurar cookies” en el pie de página.
+          {t("cookies.footnote")}
         </p>
       </div>
     </div>

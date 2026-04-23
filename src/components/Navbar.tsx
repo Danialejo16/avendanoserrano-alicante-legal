@@ -1,25 +1,28 @@
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, Phone } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import logo from "@/assets/logo.png";
 import TopContactBar from "./TopContactBar";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const isHome = location.pathname === "/";
+  const { t } = useTranslation();
 
   const sectionLinks = [
-    { label: "Inicio", id: "inicio" },
-    { label: "Servicios", id: "servicios" },
-    { label: "Sobre Nosotros", id: "nosotros" },
-    { label: "Contacto", id: "contacto" },
+    { label: t("nav.home"), id: "inicio" },
+    { label: t("nav.services"), id: "servicios" },
+    { label: t("nav.about"), id: "nosotros" },
+    { label: t("nav.contact"), id: "contacto" },
   ];
 
   const pageLinks = [
-    { label: "Currículum", href: "/curriculum" },
-    { label: "Blog", href: "/blog" },
+    { label: t("nav.curriculum"), href: "/curriculum" },
+    { label: t("nav.blog"), href: "/blog" },
   ];
 
   const handleSectionClick = (e: React.MouseEvent, id: string) => {
@@ -32,7 +35,6 @@ const Navbar = () => {
     }
   };
 
-  // Order: Inicio, Servicios, Sobre Nosotros, Currículum, Blog, Contacto
   const orderedLinks = [
     sectionLinks[0],
     sectionLinks[1],
@@ -74,14 +76,15 @@ const Navbar = () => {
           <img src={logo} alt="Avendaño Serrano Abogados" className="h-12 md:h-14 w-auto" />
         </Link>
 
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-6">
           {orderedLinks.map((link) => renderLink(link))}
+          <LanguageSwitcher />
           <a
             href="tel:+34 645041664"
             className="flex items-center gap-2 bg-navy-deep text-primary-foreground px-5 py-2.5 rounded text-sm font-semibold hover:opacity-90 transition-opacity"
           >
             <Phone className="w-4 h-4" />
-            Llamar ahora
+            {t("nav.callNow")}
           </a>
         </div>
 
@@ -93,12 +96,15 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden bg-background border-t border-border px-6 pb-6">
           {orderedLinks.map((link) => renderLink(link, true))}
+          <div className="py-3 border-t border-border mt-2">
+            <LanguageSwitcher />
+          </div>
           <a
             href="tel:+34 645041664"
             className="mt-3 flex items-center justify-center gap-2 bg-navy-deep text-primary-foreground px-5 py-2.5 rounded text-sm font-semibold"
           >
             <Phone className="w-4 h-4" />
-            Llamar ahora
+            {t("nav.callNow")}
           </a>
         </div>
       )}
