@@ -1,6 +1,8 @@
+import { useTranslation } from "react-i18next";
 import heroImage from "@/assets/hero-law.jpg";
 
 const Hero = () => {
+  const { t } = useTranslation();
   return (
     <section id="inicio" className="relative min-h-screen flex items-center">
       <div className="absolute inset-0">
@@ -13,7 +15,7 @@ const Hero = () => {
           <div className="flex items-center gap-3 mb-6 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
             <div className="w-12 h-[2px] bg-highlight" />
             <span className="text-highlight text-sm tracking-[0.3em] uppercase font-body">
-              Abogados en Alicante
+              {t("hero.tagline")}
             </span>
           </div>
 
@@ -21,17 +23,17 @@ const Hero = () => {
             className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-primary-foreground mb-6 animate-fade-in-up"
             style={{ animationDelay: "0.3s", opacity: 0 }}
           >
-            Defendemos sus derechos con{" "}
-            <span className="text-highlight-light italic">compromiso</span> y{" "}
-            <span className="text-highlight-light italic">excelencia</span>
+            {t("hero.titlePart1")}{" "}
+            <span className="text-highlight-light italic">{t("hero.titleWord1")}</span>{" "}
+            {t("hero.titleAnd")}{" "}
+            <span className="text-highlight-light italic">{t("hero.titleWord2")}</span>
           </h1>
 
           <p
             className="text-lg md:text-xl font-body leading-relaxed text-primary-foreground/70 mb-10 animate-fade-in-up"
             style={{ animationDelay: "0.5s", opacity: 0 }}
           >
-            Todos los servicios jurídicos que necesita con los precios más
-            competitivos de Alicante. Atención personalizada con los mejores resultados.
+            {t("hero.subtitle")}
           </p>
 
           <div
@@ -42,13 +44,13 @@ const Hero = () => {
               href="#contacto"
               className="accent-gradient text-accent-foreground px-8 py-4 rounded text-base font-semibold hover:opacity-90 transition-opacity text-center"
             >
-              Consulta gratuita
+              {t("hero.ctaPrimary")}
             </a>
             <a
               href="#servicios"
               className="border border-highlight/40 text-primary-foreground px-8 py-4 rounded text-base font-semibold hover:bg-highlight/10 transition-colors text-center"
             >
-              Nuestros servicios
+              {t("hero.ctaSecondary")}
             </a>
           </div>
         </div>

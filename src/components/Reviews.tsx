@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Star, Loader2, Quote, PenSquare } from "lucide-react";
 import { z } from "zod";
+import { useTranslation } from "react-i18next";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -72,6 +73,10 @@ const StarRating = ({
   );
 };
 
+const localeMap: Record<string, string> = {
+  es: "es-ES", en: "en-GB", ar: "ar", ru: "ru-RU", zh: "zh-CN",
+};
+
 const Reviews = () => {
   const [reviews, setReviews] = useState<Review[]>([]);
   const [loading, setLoading] = useState(true);
@@ -79,6 +84,8 @@ const Reviews = () => {
   const [rating, setRating] = useState(0);
   const [dialogOpen, setDialogOpen] = useState(false);
   const { toast } = useToast();
+  const { t, i18n } = useTranslation();
+  const dateLocale = localeMap[i18n.language] ?? "es-ES";
 
   const fetchReviews = async () => {
     const { data, error } = await supabase
@@ -143,16 +150,16 @@ const Reviews = () => {
     <section id="reseñas" className="py-20 bg-secondary/20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-10">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Reseñas de Clientes</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("reviews.title")}</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            La confianza de quienes han depositado sus asuntos legales en nuestras manos.
+            {t("reviews.subtitle")}
           </p>
           {reviews.length > 0 && (
             <div className="flex items-center justify-center gap-3 mt-6">
               <StarRating value={Math.round(average)} readOnly size={20} />
               <span className="font-semibold">{average.toFixed(1)}</span>
               <span className="text-sm text-muted-foreground">
-                ({reviews.length} {reviews.length === 1 ? "reseña" : "reseñas"})
+                ({reviews.length} {reviews.length === 1 ? t("reviews.reviewSingular") : t("reviews.reviewPlural")})
               </span>
             </div>
           )}
@@ -162,50 +169,50 @@ const Reviews = () => {
               <DialogTrigger asChild>
                 <Button size="lg" className="gap-2">
                   <PenSquare className="h-4 w-4" />
-                  Deja tu reseña
+                  {t("reviews.leave")}
                 </Button>
               </DialogTrigger>
               <DialogContent className="sm:max-w-md">
                 <DialogHeader>
-                  <DialogTitle>Deja tu reseña</DialogTitle>
+                  <DialogTitle>{t("reviews.dialogTitle")}</DialogTitle>
                   <DialogDescription>
-                    Cuéntanos cómo fue tu experiencia con nuestros servicios.
+                    {t("reviews.dialogDesc")}
                   </DialogDescription>
                 </DialogHeader>
                 <form onSubmit={handleSubmit} className="space-y-4 text-left">
                   <div>
-                    <Label htmlFor="client_name">Tu nombre</Label>
+                    <Label htmlFor="client_name">{t("reviews.yourName")}</Label>
                     <Input id="client_name" name="client_name" maxLength={100} required />
                   </div>
                   <div>
-                    <Label htmlFor="service">Servicio recibido</Label>
+                    <Label htmlFor="service">{t("reviews.service")}</Label>
                     <Input
                       id="service"
                       name="service"
-                      placeholder="Ej. Asesoría en derecho civil"
+                      placeholder={t("reviews.servicePlaceholder")}
                       maxLength={100}
                       required
                     />
                   </div>
                   <div>
-                    <Label>Tu valoración</Label>
+                    <Label>{t("reviews.rating")}</Label>
                     <div className="mt-2">
                       <StarRating value={rating} onChange={setRating} />
                     </div>
                   </div>
                   <div>
-                    <Label htmlFor="comment">Comentario</Label>
+                    <Label htmlFor="comment">{t("reviews.comment")}</Label>
                     <Textarea
                       id="comment"
                       name="comment"
                       rows={4}
                       maxLength={500}
-                      placeholder="Cuéntanos tu experiencia..."
+                      placeholder={t("reviews.commentPlaceholder")}
                       required
                     />
                   </div>
                   <Button type="submit" disabled={submitting} className="w-full">
-                    {submitting ? <Loader2 className="animate-spin" /> : "Publicar reseña"}
+                    {submitting ? <Loader2 className="animate-spin" /> : t("reviews.publish")}
                   </Button>
                 </form>
               </DialogContent>
@@ -222,7 +229,7 @@ const Reviews = () => {
           ) : reviews.length === 0 ? (
             <Card>
               <CardContent className="p-8 text-center text-muted-foreground">
-                Sé el primero en dejar una reseña.
+                {t("reviews.empty")}
               </CardContent>
             </Card>
           ) : (
@@ -242,7 +249,7 @@ const Reviews = () => {
                       <p className="text-sm text-foreground/80 leading-relaxed">{r.comment}</p>
                     </div>
                     <p className="text-xs text-muted-foreground mt-3">
-                      {new Date(r.created_at).toLocaleDateString("es-ES", {
+                      {new Date(r.created_at).toLocaleDateString(dateLocale, {
                         day: "numeric",
                         month: "long",
                         year: "numeric",

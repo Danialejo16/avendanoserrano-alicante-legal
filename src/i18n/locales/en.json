@@ -1,0 +1,169 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "about": "About Us",
+    "curriculum": "Resume",
+    "blog": "Blog",
+    "contact": "Contact",
+    "callNow": "Call now"
+  },
+  "topBar": {
+    "showLabel": "Contact",
+    "hideAria": "Hide contact bar",
+    "showAria": "Show contact bar"
+  },
+  "hero": {
+    "tagline": "Lawyers in Alicante",
+    "titlePart1": "We defend your rights with",
+    "titleWord1": "commitment",
+    "titleAnd": "and",
+    "titleWord2": "excellence",
+    "subtitle": "All the legal services you need at the most competitive prices in Alicante. Personalized attention with the best results.",
+    "ctaPrimary": "Free consultation",
+    "ctaSecondary": "Our services"
+  },
+  "services": {
+    "tagline": "Practice areas",
+    "title": "Comprehensive Legal Services",
+    "subtitle": "We offer complete legal advice at the most competitive prices in Alicante, without sacrificing quality.",
+    "items": {
+      "extranjeria": { "title": "Immigration Law", "desc": "Residence permits, visas, nationality, roots and family reunification." },
+      "civil": { "title": "Civil Law", "desc": "Contracts, claims, inheritances, civil liability and more." },
+      "laboral": { "title": "Labor Law", "desc": "Dismissals, severance, ERTEs and collective bargaining." },
+      "familia": { "title": "Family Law", "desc": "Divorces, custody, alimony and visitation rights." },
+      "penal": { "title": "Criminal Law", "desc": "Criminal defense, complaints, fast-track trials and appeals." },
+      "inmobiliario": { "title": "Real Estate Law", "desc": "Sales, leases, homeowners' associations." },
+      "administrativo": { "title": "Administrative Law", "desc": "Appeals, sanctions, licenses and dealings with the administration." },
+      "mercantil": { "title": "Commercial Law", "desc": "Company formation, commercial contracts and bankruptcy." },
+      "trafico": { "title": "Traffic Accidents", "desc": "Insurance claims, compensation and injuries." }
+    }
+  },
+  "about": {
+    "tagline": "About us",
+    "title": "A firm that grows with you",
+    "p1Brand": "Avendaño Serrano Abogados",
+    "p1Rest": "was born with the vocation of offering close, effective legal services at fair prices in the province of Alicante.",
+    "p2": "Although we are currently a small firm, our vision is clear: to grow by incorporating the best professionals to continue offering personalized treatment with the capacity of a large firm.",
+    "p3": "We believe that access to quality legal defense should not be a luxury. That is why we offer the most competitive prices in the area, with a free first consultation.",
+    "values": {
+      "commitment": { "title": "Commitment", "desc": "Every case is treated with dedication and professional rigor." },
+      "availability": { "title": "Availability", "desc": "Agile attention and immediate response when you need us." },
+      "prices": { "title": "Competitive Prices", "desc": "The best prices in Alicante without giving up excellence." },
+      "results": { "title": "Results", "desc": "Focused on obtaining the best result for our clients." }
+    }
+  },
+  "contact": {
+    "tagline": "Contact",
+    "title": "Free first consultation",
+    "subtitle": "Tell us about your case with no commitment. We will advise you on the best legal strategy.",
+    "address": "Address",
+    "addressValue": "Alicante, Spain",
+    "phone": "Phone",
+    "email": "Email",
+    "hours": "Hours",
+    "hoursValue": "Mon-Fri: 9:00 – 19:00",
+    "name": "Name",
+    "phoneField": "Phone",
+    "emailField": "Email",
+    "help": "How can we help you?",
+    "submit": "Send free consultation",
+    "submitting": "Sending...",
+    "successTitle": "Message sent!",
+    "successText": "We will contact you as soon as possible.",
+    "errorTitle": "Error",
+    "errorText": "The message could not be sent. Please try again."
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "cookies": "Cookie settings"
+  },
+  "cookies": {
+    "title": "Cookie Policy",
+    "intro": "We use cookies to improve your browsing experience, analyze site traffic and personalize content. You can accept all, reject them or configure your preferences.",
+    "necessary": "Necessary",
+    "necessaryDesc": "Essential for the site to function",
+    "analytics": "Analytics",
+    "analyticsDesc": "Help us understand how you use the site",
+    "marketing": "Marketing",
+    "marketingDesc": "Allow us to show personalized content",
+    "save": "Save preferences",
+    "reject": "Reject",
+    "configure": "Configure",
+    "acceptAll": "Accept all",
+    "footnote": "You can change your preferences at any time from the \"Cookie settings\" link in the footer."
+  },
+  "chat": {
+    "open": "Need legal help?",
+    "openAria": "Open legal assistant",
+    "hide": "Hide",
+    "hideAria": "Hide assistant",
+    "title": "Legal Assistant",
+    "subtitle": "Avendaño Serrano Abogados",
+    "close": "Close chat",
+    "greeting": "Hello! I'm the virtual assistant of Avendaño Serrano Abogados. What legal topic would you like to learn about?",
+    "continue": "How would you like to continue? You can contact us directly or explore another topic.",
+    "anotherIntro": "Of course. What other legal topic would you like to learn about?",
+    "another": "Ask about another topic",
+    "contactUs": "Contact us",
+    "form": "Form",
+    "call": "Call",
+    "whatsapp": "WhatsApp",
+    "hidePermanent": "Hide assistant permanently",
+    "whatsappMessage": "Hello, I would like to receive legal advice.",
+    "topics": {
+      "familia": { "label": "Family Law", "answer": "We advise on divorces, separations, child custody, alimony and modifications of measures. Each family case is unique and requires a personalized strategy to protect your interests and those of your loved ones." },
+      "penal": { "label": "Criminal Law", "answer": "We defend you in any criminal proceeding: road safety offenses, injuries, economic crimes, domestic violence and more. 24h assistance at police stations and on-call courts." },
+      "civil": { "label": "Civil Law", "answer": "Monetary claims, contracts, inheritances, evictions, civil liability and property rights. We resolve civil disputes seeking the most efficient solution for you." },
+      "laboral": { "label": "Labor Law", "answer": "Dismissals, salary claims, work accidents, disabilities, workplace harassment and collective bargaining. We defend your rights as an employee or advise your company." },
+      "extranjeria": { "label": "Immigration", "answer": "Residence permits, Spanish nationality, family reunification, appeals against denials and roots. We accompany you throughout the entire administrative process." },
+      "mercantil": { "label": "Commercial Law", "answer": "Company formation, commercial contracts, claims between companies, bankruptcy proceedings and continuous advice for companies and self-employed." },
+      "otro": { "label": "Other inquiry", "answer": "We handle any legal inquiry. Contact us and we will tell you how we can help. The first consultation is always free and without commitment." }
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Insights, news and analysis on legal matters by Avendaño Serrano Abogados.",
+    "empty": "No posts yet. Come back soon.",
+    "readMore": "Read more",
+    "ctaTitle": "Have a legal question?",
+    "ctaText": "Contact us for a free first consultation with no obligation.",
+    "ctaButton": "Go to contact"
+  },
+  "curriculum": {
+    "back": "Back to home",
+    "name": "Avendaño Serrano",
+    "role": "Lawyer · ICALI member",
+    "location": "Alicante, Spain",
+    "profile": "Professional Profile",
+    "profileText": "Practicing lawyer with a vocation for client service, specialized in immigration law, civil law and labor law. Founder of Avendaño Serrano Abogados, a firm committed to offering quality legal advice at affordable prices in the province of Alicante. Results-oriented and with strong negotiation and conflict-resolution skills.",
+    "experience": "Professional Experience",
+    "education": "Education",
+    "skills": "Areas of Specialization",
+    "languages": "Languages",
+    "ctaTitle": "Need legal advice?",
+    "ctaText": "Free first consultation. Tell us about your case and we will guide you with no commitment.",
+    "ctaButton": "Contact now"
+  },
+  "reviews": {
+    "title": "Client Reviews",
+    "subtitle": "The trust of those who have placed their legal matters in our hands.",
+    "reviewSingular": "review",
+    "reviewPlural": "reviews",
+    "leave": "Leave your review",
+    "dialogTitle": "Leave your review",
+    "dialogDesc": "Tell us about your experience with our services.",
+    "yourName": "Your name",
+    "service": "Service received",
+    "servicePlaceholder": "E.g. Civil law advice",
+    "rating": "Your rating",
+    "comment": "Comment",
+    "commentPlaceholder": "Tell us about your experience...",
+    "publish": "Publish review",
+    "empty": "Be the first to leave a review."
+  },
+  "language": {
+    "label": "Language",
+    "select": "Select language"
+  }
+}

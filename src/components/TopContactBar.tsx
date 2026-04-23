@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Phone, Mail, X, ChevronDown } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const STORAGE_KEY = "top-contact-bar-hidden";
 const PHONE = "+34 645 04 16 64";
@@ -8,6 +9,7 @@ const EMAIL = "info@avendanoserrano.es";
 
 const TopContactBar = () => {
   const [hidden, setHidden] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     setHidden(localStorage.getItem(STORAGE_KEY) === "true");
@@ -27,11 +29,11 @@ const TopContactBar = () => {
     return (
       <button
         onClick={show}
-        aria-label="Mostrar barra de contacto"
+        aria-label={t("topBar.showAria")}
         className="fixed top-0 left-1/2 -translate-x-1/2 z-[60] bg-navy-deep text-primary-foreground px-3 py-1 rounded-b-md text-xs flex items-center gap-1 shadow-md hover:opacity-90 transition-opacity"
       >
         <ChevronDown className="w-3 h-3" />
-        Contacto
+        {t("topBar.showLabel")}
       </button>
     );
   }
@@ -57,7 +59,7 @@ const TopContactBar = () => {
         </div>
         <button
           onClick={hide}
-          aria-label="Ocultar barra de contacto"
+          aria-label={t("topBar.hideAria")}
           className="p-1 hover:text-highlight-light transition-colors flex-shrink-0"
         >
           <X className="w-3.5 h-3.5" />
