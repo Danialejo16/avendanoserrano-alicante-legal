@@ -140,6 +140,9 @@ const Admin = () => {
             <Button variant="default" onClick={() => navigate("/admin/blog")}>
               Gestionar blog
             </Button>
+            <Button variant="default" onClick={() => navigate("/admin/newsletter")}>
+              Newsletter
+            </Button>
             <Button variant="outline" onClick={handleLogout}>
               <LogOut className="h-4 w-4" /> Cerrar sesión
             </Button>
