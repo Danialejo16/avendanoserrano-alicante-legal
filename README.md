@@ -1,7 +1,5 @@
 # Welcome to your Lovable project
 
-TODO: Document your project here:
-
 PUNTOS A CAMBIAR:
 - Datos de contacto, dirección, horario en "Formulario de contacto"
 - Datos de contacto en "Currículum"
@@ -10,5 +8,7 @@ PUNTOS A CAMBIAR:
 - Cambiar datos de contacto en barra superior
 - Comprar y configurar dominio
 - Añadir linkedin
+- Configurar resend con noreply@avendanoserrano.com
+- Cambiar envío de contacto de ale...@gmail.com a ...@icali.es
   
 https://danialejo16.github.io/avendanoserrano-alicante-legal/
