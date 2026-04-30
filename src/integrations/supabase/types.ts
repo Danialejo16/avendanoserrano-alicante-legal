@@ -83,6 +83,134 @@ export type Database = {
         }
         Relationships: []
       }
+      newsletter_blog_sent: {
+        Row: {
+          blog_post_id: string
+          campaign_id: string | null
+          sent_at: string
+        }
+        Insert: {
+          blog_post_id: string
+          campaign_id?: string | null
+          sent_at?: string
+        }
+        Update: {
+          blog_post_id?: string
+          campaign_id?: string | null
+          sent_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "newsletter_blog_sent_blog_post_id_fkey"
+            columns: ["blog_post_id"]
+            isOneToOne: true
+            referencedRelation: "blog_posts"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "newsletter_blog_sent_campaign_id_fkey"
+            columns: ["campaign_id"]
+            isOneToOne: false
+            referencedRelation: "newsletter_campaigns"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      newsletter_campaigns: {
+        Row: {
+          blog_post_id: string | null
+          campaign_type: string
+          content_html: string
+          cover_image_url: string | null
+          created_at: string
+          created_by: string
+          cta_label: string | null
+          cta_url: string | null
+          id: string
+          recipient_count: number
+          sent_at: string | null
+          status: string
+          subject: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          blog_post_id?: string | null
+          campaign_type?: string
+          content_html: string
+          cover_image_url?: string | null
+          created_at?: string
+          created_by: string
+          cta_label?: string | null
+          cta_url?: string | null
+          id?: string
+          recipient_count?: number
+          sent_at?: string | null
+          status?: string
+          subject: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          blog_post_id?: string | null
+          campaign_type?: string
+          content_html?: string
+          cover_image_url?: string | null
+          created_at?: string
+          created_by?: string
+          cta_label?: string | null
+          cta_url?: string | null
+          id?: string
+          recipient_count?: number
+          sent_at?: string | null
+          status?: string
+          subject?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "newsletter_campaigns_blog_post_id_fkey"
+            columns: ["blog_post_id"]
+            isOneToOne: false
+            referencedRelation: "blog_posts"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      newsletter_subscribers: {
+        Row: {
+          email: string
+          id: string
+          language: string
+          source: string | null
+          status: string
+          subscribed_at: string
+          unsubscribe_token: string
+          unsubscribed_at: string | null
+        }
+        Insert: {
+          email: string
+          id?: string
+          language?: string
+          source?: string | null
+          status?: string
+          subscribed_at?: string
+          unsubscribe_token?: string
+          unsubscribed_at?: string | null
+        }
+        Update: {
+          email?: string
+          id?: string
+          language?: string
+          source?: string | null
+          status?: string
+          subscribed_at?: string
+          unsubscribe_token?: string
+          unsubscribed_at?: string | null
+        }
+        Relationships: []
+      }
       reviews: {
         Row: {
           client_name: string

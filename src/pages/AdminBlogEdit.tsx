@@ -155,28 +155,67 @@ const AdminBlogEdit = () => {
       status: published ? "published" : "draft",
     };
 
+    let savedPostId: string | null = null;
+    let wasAlreadyPublished = false;
+
     if (isNew) {
       const { data, error } = await supabase
         .from("blog_posts")
         .insert({ ...payload, author_id: userId })
         .select("id")
         .single();
-      setSaving(false);
       if (error) {
+        setSaving(false);
         toast({ title: "Error al guardar", description: error.message, variant: "destructive" });
         return;
       }
+      savedPostId = data.id;
       toast({ title: "Entrada creada" });
-      navigate(`/admin/blog/${data.id}`, { replace: true });
     } else {
+      // Check if already sent as newsletter (i.e. was previously published)
+      const { data: alreadySent } = await supabase
+        .from("newsletter_blog_sent")
+        .select("blog_post_id")
+        .eq("blog_post_id", id!)
+        .maybeSingle();
+      wasAlreadyPublished = !!alreadySent;
       const { error } = await supabase.from("blog_posts").update(payload).eq("id", id!);
-      setSaving(false);
       if (error) {
+        setSaving(false);
         toast({ title: "Error al guardar", description: error.message, variant: "destructive" });
         return;
       }
+      savedPostId = id!;
       toast({ title: "Entrada guardada" });
     }
+
+    // Auto-send to newsletter on first publish
+    if (published && savedPostId && !wasAlreadyPublished) {
+      try {
+        const { data, error } = await supabase.functions.invoke("send-blog-newsletter", {
+          body: { blogPostId: savedPostId },
+        });
+        if (error) throw error;
+        if (data?.error) throw new Error(data.error);
+        if (data?.skipped) {
+          // already sent
+        } else if (typeof data?.sent === "number") {
+          toast({
+            title: "Newsletter enviada",
+            description: `La entrada se envió a ${data.sent} suscriptor${data.sent === 1 ? "" : "es"}.`,
+          });
+        }
+      } catch (e: any) {
+        toast({
+          title: "Aviso",
+          description: "Entrada guardada, pero no se pudo enviar la newsletter: " + (e?.message ?? ""),
+          variant: "destructive",
+        });
+      }
+    }
+
+    setSaving(false);
+    if (isNew && savedPostId) navigate(`/admin/blog/${savedPostId}`, { replace: true });
   };
 
   if (loading || isAdmin === null) {

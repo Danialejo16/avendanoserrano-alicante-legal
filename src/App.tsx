@@ -15,6 +15,9 @@ import NotFound from "./pages/NotFound.tsx";
 import PageTransition from "./components/PageTransition.tsx";
 import CookieConsent from "./components/CookieConsent.tsx";
 import LegalChatbot from "./components/LegalChatbot.tsx";
+import NewsletterPopup from "./components/NewsletterPopup.tsx";
+import NewsletterUnsubscribe from "./pages/NewsletterUnsubscribe.tsx";
+import AdminNewsletter from "./pages/AdminNewsletter.tsx";
 
 const queryClient = new QueryClient();
 
@@ -35,10 +38,13 @@ const App = () => (
             <Route path="/admin" element={<Admin />} />
             <Route path="/admin/blog" element={<AdminBlog />} />
             <Route path="/admin/blog/:id" element={<AdminBlogEdit />} />
+            <Route path="/admin/newsletter" element={<AdminNewsletter />} />
+            <Route path="/newsletter-unsubscribe" element={<NewsletterUnsubscribe />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </PageTransition>
         <LegalChatbot />
+        <NewsletterPopup />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
