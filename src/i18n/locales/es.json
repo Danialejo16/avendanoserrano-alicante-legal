@@ -28,15 +28,42 @@
     "title": "Servicios Jurídicos Integrales",
     "subtitle": "Ofrecemos asesoramiento legal completo con los precios más competitivos de Alicante, sin renunciar a la calidad.",
     "items": {
-      "extranjeria": { "title": "Derecho de Extranjería", "desc": "Permisos de residencia, visados, nacionalidad, arraigo y reagrupación familiar." },
-      "civil": { "title": "Derecho Civil", "desc": "Contratos, reclamaciones, herencias, responsabilidad civil y más." },
-      "laboral": { "title": "Derecho Laboral", "desc": "Despidos, indemnizaciones, ERTEs y negociación colectiva." },
-      "familia": { "title": "Derecho de Familia", "desc": "Divorcios, custodia, pensiones y régimen de visitas." },
-      "penal": { "title": "Derecho Penal", "desc": "Defensa penal, denuncias, juicios rápidos y recursos." },
-      "inmobiliario": { "title": "Derecho Inmobiliario", "desc": "Compraventas, arrendamientos, comunidades de propietarios." },
-      "administrativo": { "title": "Derecho Administrativo", "desc": "Recursos, sanciones, licencias y relaciones con la administración." },
-      "mercantil": { "title": "Derecho Mercantil", "desc": "Constitución de sociedades, contratos mercantiles y concursos." },
-      "trafico": { "title": "Accidentes de Tráfico", "desc": "Reclamaciones a seguros, indemnizaciones y lesiones." }
+      "extranjeria": {
+        "title": "Derecho de Extranjería",
+        "desc": "Permisos de residencia, visados, nacionalidad, arraigo y reagrupación familiar."
+      },
+      "civil": {
+        "title": "Derecho Civil",
+        "desc": "Contratos, reclamaciones, herencias, responsabilidad civil y más."
+      },
+      "laboral": {
+        "title": "Derecho Laboral",
+        "desc": "Despidos, indemnizaciones, ERTEs y negociación colectiva."
+      },
+      "familia": {
+        "title": "Derecho de Familia",
+        "desc": "Divorcios, custodia, pensiones y régimen de visitas."
+      },
+      "penal": {
+        "title": "Derecho Penal",
+        "desc": "Defensa penal, denuncias, juicios rápidos y recursos."
+      },
+      "inmobiliario": {
+        "title": "Derecho Inmobiliario",
+        "desc": "Compraventas, arrendamientos, comunidades de propietarios."
+      },
+      "administrativo": {
+        "title": "Derecho Administrativo",
+        "desc": "Recursos, sanciones, licencias y relaciones con la administración."
+      },
+      "mercantil": {
+        "title": "Derecho Mercantil",
+        "desc": "Constitución de sociedades, contratos mercantiles y concursos."
+      },
+      "trafico": {
+        "title": "Accidentes de Tráfico",
+        "desc": "Reclamaciones a seguros, indemnizaciones y lesiones."
+      }
     }
   },
   "about": {
@@ -47,10 +74,22 @@
     "p2": "Aunque actualmente somos un despacho pequeño, nuestra visión es clara: crecer incorporando a los mejores profesionales para seguir ofreciendo un trato personalizado con la capacidad de un gran bufete.",
     "p3": "Creemos que el acceso a una defensa legal de calidad no debería ser un lujo. Por eso ofrecemos los precios más competitivos de la zona, con primera consulta gratuita.",
     "values": {
-      "commitment": { "title": "Compromiso", "desc": "Cada caso es tratado con dedicación y rigor profesional." },
-      "availability": { "title": "Disponibilidad", "desc": "Atención ágil y respuesta inmediata cuando nos necesite." },
-      "prices": { "title": "Precios Competitivos", "desc": "Los mejores precios de Alicante sin renunciar a la excelencia." },
-      "results": { "title": "Resultados", "desc": "Orientados a obtener el mejor resultado para nuestros clientes." }
+      "commitment": {
+        "title": "Compromiso",
+        "desc": "Cada caso es tratado con dedicación y rigor profesional."
+      },
+      "availability": {
+        "title": "Disponibilidad",
+        "desc": "Atención ágil y respuesta inmediata cuando nos necesite."
+      },
+      "prices": {
+        "title": "Precios Competitivos",
+        "desc": "Los mejores precios de Alicante sin renunciar a la excelencia."
+      },
+      "results": {
+        "title": "Resultados",
+        "desc": "Orientados a obtener el mejor resultado para nuestros clientes."
+      }
     }
   },
   "contact": {
@@ -112,13 +151,34 @@
     "hidePermanent": "Ocultar asistente permanentemente",
     "whatsappMessage": "Hola, me gustaría recibir asesoramiento legal.",
     "topics": {
-      "familia": { "label": "Derecho de Familia", "answer": "Asesoramos en divorcios, separaciones, custodia de menores, pensiones de alimentos y modificaciones de medidas. Cada caso familiar es único y requiere una estrategia personalizada para proteger sus intereses y los de sus seres queridos." },
-      "penal": { "label": "Derecho Penal", "answer": "Le defendemos en cualquier procedimiento penal: delitos contra la seguridad vial, lesiones, delitos económicos, violencia doméstica y más. Asistencia 24h en comisaría y juzgados de guardia." },
-      "civil": { "label": "Derecho Civil", "answer": "Reclamaciones de cantidad, contratos, herencias, desahucios, responsabilidad civil y derechos reales. Resolvemos conflictos civiles buscando siempre la solución más eficiente para usted." },
-      "laboral": { "label": "Derecho Laboral", "answer": "Despidos, reclamaciones de salarios, accidentes laborales, incapacidades, acoso laboral y negociación colectiva. Defendemos sus derechos como trabajador o asesoramos a su empresa." },
-      "extranjeria": { "label": "Extranjería", "answer": "Permisos de residencia, nacionalidad española, reagrupación familiar, recursos contra denegaciones y arraigos. Le acompañamos en todo el proceso administrativo." },
-      "mercantil": { "label": "Derecho Mercantil", "answer": "Constitución de sociedades, contratos mercantiles, reclamaciones entre empresas, concursos de acreedores y asesoramiento continuado a empresas y autónomos." },
-      "otro": { "label": "Otra consulta", "answer": "Atendemos cualquier consulta legal. Contacte con nosotros y le diremos cómo podemos ayudarle. La primera consulta es siempre gratuita y sin compromiso." }
+      "familia": {
+        "label": "Derecho de Familia",
+        "answer": "Asesoramos en divorcios, separaciones, custodia de menores, pensiones de alimentos y modificaciones de medidas. Cada caso familiar es único y requiere una estrategia personalizada para proteger sus intereses y los de sus seres queridos."
+      },
+      "penal": {
+        "label": "Derecho Penal",
+        "answer": "Le defendemos en cualquier procedimiento penal: delitos contra la seguridad vial, lesiones, delitos económicos, violencia doméstica y más. Asistencia 24h en comisaría y juzgados de guardia."
+      },
+      "civil": {
+        "label": "Derecho Civil",
+        "answer": "Reclamaciones de cantidad, contratos, herencias, desahucios, responsabilidad civil y derechos reales. Resolvemos conflictos civiles buscando siempre la solución más eficiente para usted."
+      },
+      "laboral": {
+        "label": "Derecho Laboral",
+        "answer": "Despidos, reclamaciones de salarios, accidentes laborales, incapacidades, acoso laboral y negociación colectiva. Defendemos sus derechos como trabajador o asesoramos a su empresa."
+      },
+      "extranjeria": {
+        "label": "Extranjería",
+        "answer": "Permisos de residencia, nacionalidad española, reagrupación familiar, recursos contra denegaciones y arraigos. Le acompañamos en todo el proceso administrativo."
+      },
+      "mercantil": {
+        "label": "Derecho Mercantil",
+        "answer": "Constitución de sociedades, contratos mercantiles, reclamaciones entre empresas, concursos de acreedores y asesoramiento continuado a empresas y autónomos."
+      },
+      "otro": {
+        "label": "Otra consulta",
+        "answer": "Atendemos cualquier consulta legal. Contacte con nosotros y le diremos cómo podemos ayudarle. La primera consulta es siempre gratuita y sin compromiso."
+      }
     }
   },
   "blog": {
@@ -165,5 +225,29 @@
   "language": {
     "label": "Idioma",
     "select": "Seleccionar idioma"
+  },
+  "newsletter": {
+    "title": "Suscríbete a nuestra newsletter",
+    "subtitle": "Recibe novedades legales, nuevas entradas del blog y comunicaciones importantes.",
+    "placeholder": "tu@email.com",
+    "subscribe": "Suscribirme",
+    "noThanks": "No, gracias",
+    "close": "Cerrar",
+    "invalidEmail": "Email inválido",
+    "successTitle": "¡Suscripción confirmada!",
+    "successDesc": "Te hemos enviado un email de bienvenida.",
+    "errorTitle": "Error",
+    "unsubTitle": "Darse de baja",
+    "unsubConfirmTitle": "¿Confirmar baja?",
+    "unsubConfirmText": "Dejarás de recibir nuestras newsletters. Puedes volver a suscribirte cuando quieras.",
+    "confirmUnsub": "Sí, darme de baja",
+    "cancel": "Cancelar",
+    "unsubDone": "Te has dado de baja",
+    "unsubDoneFor": "Hemos eliminado {{email}} de nuestra lista.",
+    "unsubDoneGeneric": "Ya no recibirás más correos.",
+    "unsubError": "Enlace inválido o caducado",
+    "tryAgain": "Reintentar",
+    "invalidLink": "Enlace no válido",
+    "goHome": "Volver al inicio"
   }
 }
