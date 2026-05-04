@@ -18,6 +18,7 @@ import LegalChatbot from "./components/LegalChatbot.tsx";
 import NewsletterPopup from "./components/NewsletterPopup.tsx";
 import NewsletterUnsubscribe from "./pages/NewsletterUnsubscribe.tsx";
 import AdminNewsletter from "./pages/AdminNewsletter.tsx";
+import AdminAppointments from "./pages/AdminAppointments.tsx";
 
 const queryClient = new QueryClient();
 
