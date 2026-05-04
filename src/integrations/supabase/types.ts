@@ -14,6 +14,92 @@ export type Database = {
   }
   public: {
     Tables: {
+      appointment_blocks: {
+        Row: {
+          created_at: string
+          end_date: string
+          end_hour: number | null
+          id: string
+          reason: string | null
+          start_date: string
+          start_hour: number | null
+        }
+        Insert: {
+          created_at?: string
+          end_date: string
+          end_hour?: number | null
+          id?: string
+          reason?: string | null
+          start_date: string
+          start_hour?: number | null
+        }
+        Update: {
+          created_at?: string
+          end_date?: string
+          end_hour?: number | null
+          id?: string
+          reason?: string | null
+          start_date?: string
+          start_hour?: number | null
+        }
+        Relationships: []
+      }
+      appointments: {
+        Row: {
+          appointment_date: string
+          appointment_hour: number
+          client_email: string | null
+          client_name: string
+          client_phone: string
+          created_at: string
+          google_event_id: string | null
+          id: string
+          notes: string | null
+          service_id: string | null
+          service_name: string
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          appointment_date: string
+          appointment_hour: number
+          client_email?: string | null
+          client_name: string
+          client_phone: string
+          created_at?: string
+          google_event_id?: string | null
+          id?: string
+          notes?: string | null
+          service_id?: string | null
+          service_name: string
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          appointment_date?: string
+          appointment_hour?: number
+          client_email?: string | null
+          client_name?: string
+          client_phone?: string
+          created_at?: string
+          google_event_id?: string | null
+          id?: string
+          notes?: string | null
+          service_id?: string | null
+          service_name?: string
+          status?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "appointments_service_id_fkey"
+            columns: ["service_id"]
+            isOneToOne: false
+            referencedRelation: "services"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       blog_posts: {
         Row: {
           author_id: string
@@ -238,6 +324,33 @@ export type Database = {
         }
         Relationships: []
       }
+      services: {
+        Row: {
+          active: boolean
+          created_at: string
+          description: string | null
+          id: string
+          name: string
+          sort_order: number
+        }
+        Insert: {
+          active?: boolean
+          created_at?: string
+          description?: string | null
+          id?: string
+          name: string
+          sort_order?: number
+        }
+        Update: {
+          active?: boolean
+          created_at?: string
+          description?: string | null
+          id?: string
+          name?: string
+          sort_order?: number
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           created_at: string
@@ -264,6 +377,13 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      get_busy_slots: {
+        Args: { _from: string; _to: string }
+        Returns: {
+          appointment_date: string
+          appointment_hour: number
+        }[]
+      }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]
