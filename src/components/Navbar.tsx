@@ -17,6 +17,7 @@ const Navbar = () => {
     { label: t("nav.home"), id: "inicio" },
     { label: t("nav.services"), id: "servicios" },
     { label: t("nav.about"), id: "nosotros" },
+    { label: t("nav.appointments", "Citas"), id: "citas" },
     { label: t("nav.contact"), id: "contacto" },
   ];
 
@@ -42,6 +43,7 @@ const Navbar = () => {
     pageLinks[0],
     pageLinks[1],
     sectionLinks[3],
+    sectionLinks[4],
   ];
 
   const renderLink = (link: typeof orderedLinks[number], mobile = false) => {
