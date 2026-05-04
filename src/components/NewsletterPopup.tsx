@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
-import { getConsent, onConsentChange } from "@/lib/cookies";
+
 
 const STORAGE_KEY = "newsletter-popup-state"; // values: "subscribed" | "dismissed"
 const DELAY_MS = 12000; // 12s after first visit
