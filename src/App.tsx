@@ -18,6 +18,7 @@ import LegalChatbot from "./components/LegalChatbot.tsx";
 import NewsletterPopup from "./components/NewsletterPopup.tsx";
 import NewsletterUnsubscribe from "./pages/NewsletterUnsubscribe.tsx";
 import AdminNewsletter from "./pages/AdminNewsletter.tsx";
+import AdminAppointments from "./pages/AdminAppointments.tsx";
 
 const queryClient = new QueryClient();
 
@@ -39,6 +40,7 @@ const App = () => (
             <Route path="/admin/blog" element={<AdminBlog />} />
             <Route path="/admin/blog/:id" element={<AdminBlogEdit />} />
             <Route path="/admin/newsletter" element={<AdminNewsletter />} />
+            <Route path="/admin/appointments" element={<AdminAppointments />} />
             <Route path="/newsletter-unsubscribe" element={<NewsletterUnsubscribe />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
