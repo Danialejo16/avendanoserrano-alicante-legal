@@ -40,6 +40,7 @@ const App = () => (
             <Route path="/admin/blog" element={<AdminBlog />} />
             <Route path="/admin/blog/:id" element={<AdminBlogEdit />} />
             <Route path="/admin/newsletter" element={<AdminNewsletter />} />
+            <Route path="/admin/appointments" element={<AdminAppointments />} />
             <Route path="/newsletter-unsubscribe" element={<NewsletterUnsubscribe />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
