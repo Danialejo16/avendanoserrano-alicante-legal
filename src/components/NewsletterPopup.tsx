@@ -18,24 +18,10 @@ const NewsletterPopup = () => {
   const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
-    const evaluate = () => {
-      const state = localStorage.getItem(STORAGE_KEY);
-      if (state) return; // already subscribed or dismissed
-      const consent = getConsent();
-      if (!consent || !consent.marketing) return; // requires marketing consent
-      const timer = setTimeout(() => setVisible(true), DELAY_MS);
-      return () => clearTimeout(timer);
-    };
-    const cleanup = evaluate();
-    const off = onConsentChange(() => {
-      // re-evaluate on consent change
-      setVisible(false);
-      evaluate();
-    });
-    return () => {
-      if (typeof cleanup === "function") cleanup();
-      off();
-    };
+    const state = localStorage.getItem(STORAGE_KEY);
+    if (state) return; // already subscribed or dismissed
+    const timer = setTimeout(() => setVisible(true), DELAY_MS);
+    return () => clearTimeout(timer);
   }, []);
 
   const dismiss = () => {
