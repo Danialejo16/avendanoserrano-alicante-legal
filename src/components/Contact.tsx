@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import Booking from "./Booking";
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -117,6 +118,8 @@ const Contact = () => {
             )}
           </div>
         </div>
+
+        <Booking />
       </div>
     </section>
   );
