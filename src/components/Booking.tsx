@@ -157,142 +157,137 @@ const Booking = () => {
   }
 
   return (
-    <section id="citas" className="section-padding bg-secondary/10">
-      <div className="max-w-4xl mx-auto">
-        <Collapsible>
-          <div className="text-center mb-6">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <div className="w-8 h-[2px] bg-highlight" />
-              <span className="text-highlight text-sm tracking-[0.3em] uppercase font-body">Agenda</span>
-              <div className="w-8 h-[2px] bg-highlight" />
+    <div id="citas" className="mt-10 pt-10 border-t border-border">
+      <Collapsible>
+        <div className="text-center mb-2">
+          <h3 className="font-heading text-xl md:text-2xl font-semibold text-foreground mb-2">
+            ¿Prefieres reservar una cita?
+          </h3>
+          <p className="text-muted-foreground font-body text-sm mb-4">
+            Horario: lunes a viernes de 9:00 a 18:00 h.
+          </p>
+          <CollapsibleTrigger asChild>
+            <Button
+              type="button"
+              variant="outline"
+              className="group"
+            >
+              <CalIcon className="w-4 h-4 mr-2" />
+              Reservar cita
+              <ChevronDown className="w-4 h-4 ml-2 transition-transform group-data-[state=open]:rotate-180" />
+            </Button>
+          </CollapsibleTrigger>
+        </div>
+
+        <CollapsibleContent className="data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up overflow-hidden">
+          <form onSubmit={submit} className="bg-card border border-border rounded-lg p-6 md:p-8 space-y-6 mt-4">
+            <div>
+              <Label className="mb-2 block">Servicio</Label>
+              <Select value={serviceId} onValueChange={setServiceId}>
+                <SelectTrigger><SelectValue placeholder="Elige un servicio" /></SelectTrigger>
+                <SelectContent>
+                  {services.map((s) => (
+                    <SelectItem key={s.id} value={s.id}>{s.name}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Solicita tu cita
-            </h2>
-            <p className="text-muted-foreground font-body text-lg max-w-xl mx-auto mb-6">
-              Horario de atención: lunes a viernes de 9:00 a 18:00 h.
-            </p>
-            <CollapsibleTrigger asChild>
-              <Button
-                type="button"
-                className="accent-gradient text-accent-foreground px-8 py-6 text-base font-semibold group"
-              >
-                <CalIcon className="w-4 h-4 mr-2" />
-                Reservar cita
-                <ChevronDown className="w-4 h-4 ml-2 transition-transform group-data-[state=open]:rotate-180" />
-              </Button>
-            </CollapsibleTrigger>
-          </div>
 
-          <CollapsibleContent className="data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up overflow-hidden">
-            <form onSubmit={submit} className="bg-card border border-border rounded-lg p-6 md:p-8 space-y-6 mt-4">
+            <div className="grid md:grid-cols-2 gap-4">
               <div>
-                <Label className="mb-2 block">Servicio</Label>
-                <Select value={serviceId} onValueChange={setServiceId}>
-                  <SelectTrigger><SelectValue placeholder="Elige un servicio" /></SelectTrigger>
-                  <SelectContent>
-                    {services.map((s) => (
-                      <SelectItem key={s.id} value={s.id}>{s.name}</SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+                <Label className="mb-2 block">Fecha</Label>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <Button
+                      type="button"
+                      variant="outline"
+                      className={cn("w-full justify-start text-left font-normal", !date && "text-muted-foreground")}
+                    >
+                      <CalIcon className="mr-2 h-4 w-4" />
+                      {date ? format(date, "PPP", { locale: es }) : "Selecciona una fecha"}
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-auto p-0" align="start">
+                    <Calendar
+                      mode="single"
+                      selected={date}
+                      onSelect={(d) => {
+                        setDate(d);
+                        setHour(null);
+                      }}
+                      locale={es}
+                      disabled={(d) => {
+                        const today = startOfDay(new Date());
+                        if (isBefore(d, today)) return true;
+                        const dow = d.getDay();
+                        if (dow === 0 || dow === 6) return true;
+                        if (isDateFullyBlocked(d)) return true;
+                        return false;
+                      }}
+                      initialFocus
+                      className={cn("p-3 pointer-events-auto")}
+                    />
+                  </PopoverContent>
+                </Popover>
               </div>
-
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <Label className="mb-2 block">Fecha</Label>
-                  <Popover>
-                    <PopoverTrigger asChild>
-                      <Button
+              <div>
+                <Label className="mb-2 block">Hora</Label>
+                <div className="grid grid-cols-3 gap-2">
+                  {HOURS.map((h) => {
+                    const taken = !date || !availableHours.includes(h);
+                    return (
+                      <button
+                        key={h}
                         type="button"
-                        variant="outline"
-                        className={cn("w-full justify-start text-left font-normal", !date && "text-muted-foreground")}
+                        disabled={taken}
+                        onClick={() => setHour(h)}
+                        className={cn(
+                          "py-2 rounded text-sm font-medium border transition-colors",
+                          hour === h
+                            ? "bg-navy-deep text-primary-foreground border-navy-deep"
+                            : taken
+                            ? "bg-muted text-muted-foreground/50 border-border cursor-not-allowed line-through"
+                            : "bg-background text-foreground border-border hover:border-highlight",
+                        )}
                       >
-                        <CalIcon className="mr-2 h-4 w-4" />
-                        {date ? format(date, "PPP", { locale: es }) : "Selecciona una fecha"}
-                      </Button>
-                    </PopoverTrigger>
-                    <PopoverContent className="w-auto p-0" align="start">
-                      <Calendar
-                        mode="single"
-                        selected={date}
-                        onSelect={(d) => {
-                          setDate(d);
-                          setHour(null);
-                        }}
-                        locale={es}
-                        disabled={(d) => {
-                          const today = startOfDay(new Date());
-                          if (isBefore(d, today)) return true;
-                          const dow = d.getDay();
-                          if (dow === 0 || dow === 6) return true;
-                          if (isDateFullyBlocked(d)) return true;
-                          return false;
-                        }}
-                        initialFocus
-                        className={cn("p-3 pointer-events-auto")}
-                      />
-                    </PopoverContent>
-                  </Popover>
-                </div>
-                <div>
-                  <Label className="mb-2 block">Hora</Label>
-                  <div className="grid grid-cols-3 gap-2">
-                    {HOURS.map((h) => {
-                      const taken = !date || !availableHours.includes(h);
-                      return (
-                        <button
-                          key={h}
-                          type="button"
-                          disabled={taken}
-                          onClick={() => setHour(h)}
-                          className={cn(
-                            "py-2 rounded text-sm font-medium border transition-colors",
-                            hour === h
-                              ? "bg-navy-deep text-primary-foreground border-navy-deep"
-                              : taken
-                              ? "bg-muted text-muted-foreground/50 border-border cursor-not-allowed line-through"
-                              : "bg-background text-foreground border-border hover:border-highlight",
-                          )}
-                        >
-                          <Clock className="w-3 h-3 inline mr-1" />
-                          {formatHour(h)}
-                        </button>
-                      );
-                    })}
-                  </div>
+                        <Clock className="w-3 h-3 inline mr-1" />
+                        {formatHour(h)}
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
+            </div>
 
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <Label htmlFor="ap-name" className="mb-2 block">Nombre *</Label>
-                  <Input id="ap-name" value={name} onChange={(e) => setName(e.target.value)} required maxLength={100} />
-                </div>
-                <div>
-                  <Label htmlFor="ap-phone" className="mb-2 block">Teléfono *</Label>
-                  <Input id="ap-phone" type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} required maxLength={30} />
-                </div>
-              </div>
-
+            <div className="grid md:grid-cols-2 gap-4">
               <div>
-                <Label htmlFor="ap-email" className="mb-2 block">Email <span className="text-muted-foreground text-xs">(opcional)</span></Label>
-                <Input id="ap-email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} maxLength={255} />
+                <Label htmlFor="ap-name" className="mb-2 block">Nombre *</Label>
+                <Input id="ap-name" value={name} onChange={(e) => setName(e.target.value)} required maxLength={100} />
               </div>
-
               <div>
-                <Label htmlFor="ap-notes" className="mb-2 block">Comentario <span className="text-muted-foreground text-xs">(opcional)</span></Label>
-                <Textarea id="ap-notes" value={notes} onChange={(e) => setNotes(e.target.value)} maxLength={500} rows={3} />
+                <Label htmlFor="ap-phone" className="mb-2 block">Teléfono *</Label>
+                <Input id="ap-phone" type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} required maxLength={30} />
               </div>
+            </div>
 
-              <Button type="submit" disabled={submitting} className="w-full accent-gradient text-accent-foreground py-6 text-base font-semibold">
-                {submitting ? <Loader2 className="w-4 h-4 animate-spin" /> : "Confirmar reserva"}
-              </Button>
-            </form>
-          </CollapsibleContent>
-        </Collapsible>
-      </div>
-    </section>);
+            <div>
+              <Label htmlFor="ap-email" className="mb-2 block">Email <span className="text-muted-foreground text-xs">(opcional)</span></Label>
+              <Input id="ap-email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} maxLength={255} />
+            </div>
+
+            <div>
+              <Label htmlFor="ap-notes" className="mb-2 block">Comentario <span className="text-muted-foreground text-xs">(opcional)</span></Label>
+              <Textarea id="ap-notes" value={notes} onChange={(e) => setNotes(e.target.value)} maxLength={500} rows={3} />
+            </div>
+
+            <Button type="submit" disabled={submitting} className="w-full accent-gradient text-accent-foreground py-6 text-base font-semibold">
+              {submitting ? <Loader2 className="w-4 h-4 animate-spin" /> : "Confirmar reserva"}
+            </Button>
+          </form>
+        </CollapsibleContent>
+      </Collapsible>
+    </div>
+  );
 };
 
 export default Booking;
