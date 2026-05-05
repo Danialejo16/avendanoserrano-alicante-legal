@@ -129,32 +129,30 @@ const Booking = () => {
 
   if (done) {
     return (
-      <section id="citas" className="section-padding bg-secondary/10">
-        <div className="max-w-2xl mx-auto bg-card border border-highlight/30 rounded-lg p-12 text-center">
-          <div className="w-16 h-16 rounded-full accent-gradient flex items-center justify-center mx-auto mb-4">
-            <CheckCircle2 className="w-8 h-8 text-accent-foreground" />
-          </div>
-          <h3 className="font-heading text-2xl font-semibold mb-2">¡Cita reservada!</h3>
-          <p className="text-muted-foreground">
-            Te esperamos el {date && format(date, "d 'de' MMMM", { locale: es })} a las{" "}
-            {hour !== null && formatHour(hour)}h.
-          </p>
-          <Button
-            onClick={() => {
-              setDone(false);
-              setHour(null);
-              setName("");
-              setPhone("");
-              setEmail("");
-              setNotes("");
-            }}
-            className="mt-6"
-            variant="outline"
-          >
-            Reservar otra cita
-          </Button>
+      <div id="citas" className="max-w-2xl mx-auto bg-card border border-highlight/30 rounded-lg p-12 text-center mt-12">
+        <div className="w-16 h-16 rounded-full accent-gradient flex items-center justify-center mx-auto mb-4">
+          <CheckCircle2 className="w-8 h-8 text-accent-foreground" />
         </div>
-      </section>
+        <h3 className="font-heading text-2xl font-semibold mb-2">¡Cita reservada!</h3>
+        <p className="text-muted-foreground">
+          Te esperamos el {date && format(date, "d 'de' MMMM", { locale: es })} a las{" "}
+          {hour !== null && formatHour(hour)}h.
+        </p>
+        <Button
+          onClick={() => {
+            setDone(false);
+            setHour(null);
+            setName("");
+            setPhone("");
+            setEmail("");
+            setNotes("");
+          }}
+          className="mt-6"
+          variant="outline"
+        >
+          Reservar otra cita
+        </Button>
+      </div>
     );
   }
 
