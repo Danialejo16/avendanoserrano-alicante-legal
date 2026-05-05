@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
-import { Calendar as CalIcon, Clock, Loader2, CheckCircle2 } from "lucide-react";
+import { Calendar as CalIcon, Clock, Loader2, CheckCircle2, ChevronDown } from "lucide-react";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { format, addDays, startOfDay, isBefore } from "date-fns";
 import { es } from "date-fns/locale";
 import { Button } from "@/components/ui/button";
