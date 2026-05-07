@@ -249,5 +249,29 @@
     "tryAgain": "重试",
     "invalidLink": "无效链接",
     "goHome": "返回首页"
+  },
+  "booking": {
+    "heading": "想预约吗?",
+    "schedule": "营业时间:周一至周五,9:00 至 18:00。",
+    "bookCta": "预约",
+    "service": "服务",
+    "servicePlaceholder": "请选择服务",
+    "date": "日期",
+    "datePlaceholder": "选择日期",
+    "time": "时间",
+    "name": "姓名 *",
+    "phone": "电话 *",
+    "email": "电子邮件",
+    "comment": "备注",
+    "optional": "(可选)",
+    "confirm": "确认预约",
+    "doneTitle": "预约成功!",
+    "doneText": "我们将于 {{date}} {{time}} 时等候您。",
+    "bookAnother": "再次预约",
+    "missingTitle": "信息不全",
+    "missingDesc": "请选择服务、日期和时间。",
+    "requiredTitle": "必填字段",
+    "requiredDesc": "姓名和电话为必填项。",
+    "bookErrorTitle": "无法预约"
   }
 }
