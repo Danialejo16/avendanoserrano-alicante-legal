@@ -29,6 +29,8 @@ const formatHour = (h: number) => `${String(h).padStart(2, "0")}:00`;
 
 const Booking = () => {
   const { toast } = useToast();
+  const { t, i18n } = useTranslation();
+  const dl = dateLocales[i18n.language] || es;
   const [services, setServices] = useState<Service[]>([]);
   const [date, setDate] = useState<Date | undefined>();
   const [hour, setHour] = useState<number | null>(null);
