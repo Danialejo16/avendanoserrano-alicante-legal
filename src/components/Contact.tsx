@@ -72,7 +72,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground font-body">{item.label}</p>
-                  <p className="font-body font-medium text-foreground">{item.value}</p>
+                  <p className="font-body font-medium text-foreground" dir={item.ltr ? "ltr" : undefined}>{item.value}</p>
                 </div>
               </div>
             ))}
