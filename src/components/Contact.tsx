@@ -40,10 +40,10 @@ const Contact = () => {
   };
 
   const items = [
-    { icon: MapPin, label: t("contact.address"), value: t("contact.addressValue") },
-    { icon: Phone, label: t("contact.phone"), value: "+34 645 04 16 64" },
-    { icon: Mail, label: t("contact.email"), value: "info@avendanoserrano.es" },
-    { icon: Clock, label: t("contact.hours"), value: t("contact.hoursValue") },
+    { icon: MapPin, label: t("contact.address"), value: t("contact.addressValue"), ltr: false },
+    { icon: Phone, label: t("contact.phone"), value: "+34 645 04 16 64", ltr: true },
+    { icon: Mail, label: t("contact.email"), value: "info@avendanoserrano.es", ltr: true },
+    { icon: Clock, label: t("contact.hours"), value: t("contact.hoursValue"), ltr: false },
   ];
 
   return (
