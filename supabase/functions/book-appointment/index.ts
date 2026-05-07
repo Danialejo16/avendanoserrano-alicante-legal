@@ -149,6 +149,24 @@ Deno.serve(async (req) => {
       await supabase.from("appointments").update({ google_event_id: eventId }).eq("id", inserted.id);
     }
 
+    // Send confirmation email (best effort)
+    if (data.client_email) {
+      try {
+        await supabase.functions.invoke("send-appointment-email", {
+          body: {
+            type: "confirmation",
+            to: data.client_email,
+            client_name: data.client_name,
+            service_name: svc.name,
+            appointment_date: data.appointment_date,
+            appointment_hour: data.appointment_hour,
+          },
+        });
+      } catch (e) {
+        console.error("confirmation email failed", e);
+      }
+    }
+
     return new Response(JSON.stringify({ success: true, appointment: inserted }), {
       status: 200,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
