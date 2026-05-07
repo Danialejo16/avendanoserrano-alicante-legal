@@ -40,7 +40,7 @@ const TopContactBar = () => {
 
   return (
     <div className="bg-navy-deep text-primary-foreground text-xs md:text-sm">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 h-9 flex items-center justify-between gap-4">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 h-9 flex items-center justify-between gap-4" dir="ltr">
         <div className="flex items-center gap-4 md:gap-6 overflow-hidden">
           <a
             href={PHONE_HREF}
