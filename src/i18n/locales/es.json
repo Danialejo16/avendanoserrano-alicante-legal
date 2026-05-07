@@ -249,5 +249,29 @@
     "tryAgain": "Reintentar",
     "invalidLink": "Enlace no válido",
     "goHome": "Volver al inicio"
+  },
+  "booking": {
+    "heading": "¿Prefieres reservar una cita?",
+    "schedule": "Horario: lunes a viernes de 9:00 a 18:00 h.",
+    "bookCta": "Reservar cita",
+    "service": "Servicio",
+    "servicePlaceholder": "Elige un servicio",
+    "date": "Fecha",
+    "datePlaceholder": "Selecciona una fecha",
+    "time": "Hora",
+    "name": "Nombre *",
+    "phone": "Teléfono *",
+    "email": "Email",
+    "comment": "Comentario",
+    "optional": "(opcional)",
+    "confirm": "Confirmar reserva",
+    "doneTitle": "¡Cita reservada!",
+    "doneText": "Te esperamos el {{date}} a las {{time}}h.",
+    "bookAnother": "Reservar otra cita",
+    "missingTitle": "Faltan datos",
+    "missingDesc": "Elige servicio, fecha y hora.",
+    "requiredTitle": "Datos obligatorios",
+    "requiredDesc": "Nombre y teléfono son requeridos.",
+    "bookErrorTitle": "No se pudo reservar"
   }
 }
