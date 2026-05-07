@@ -55,6 +55,7 @@ export type Database = {
           google_event_id: string | null
           id: string
           notes: string | null
+          reminder_sent_at: string | null
           service_id: string | null
           service_name: string
           status: string
@@ -70,6 +71,7 @@ export type Database = {
           google_event_id?: string | null
           id?: string
           notes?: string | null
+          reminder_sent_at?: string | null
           service_id?: string | null
           service_name: string
           status?: string
@@ -85,6 +87,7 @@ export type Database = {
           google_event_id?: string | null
           id?: string
           notes?: string | null
+          reminder_sent_at?: string | null
           service_id?: string | null
           service_name?: string
           status?: string
