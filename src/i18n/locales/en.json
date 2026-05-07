@@ -249,5 +249,29 @@
     "tryAgain": "Try again",
     "invalidLink": "Invalid link",
     "goHome": "Back to home"
+  },
+  "booking": {
+    "heading": "Prefer to book an appointment?",
+    "schedule": "Hours: Monday to Friday, 9:00 to 18:00.",
+    "bookCta": "Book appointment",
+    "service": "Service",
+    "servicePlaceholder": "Choose a service",
+    "date": "Date",
+    "datePlaceholder": "Select a date",
+    "time": "Time",
+    "name": "Name *",
+    "phone": "Phone *",
+    "email": "Email",
+    "comment": "Comment",
+    "optional": "(optional)",
+    "confirm": "Confirm booking",
+    "doneTitle": "Appointment booked!",
+    "doneText": "We will see you on {{date}} at {{time}}h.",
+    "bookAnother": "Book another appointment",
+    "missingTitle": "Missing data",
+    "missingDesc": "Choose service, date and time.",
+    "requiredTitle": "Required fields",
+    "requiredDesc": "Name and phone are required.",
+    "bookErrorTitle": "Could not book"
   }
 }

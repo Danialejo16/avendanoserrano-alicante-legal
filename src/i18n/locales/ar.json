@@ -249,5 +249,29 @@
     "tryAgain": "إعادة المحاولة",
     "invalidLink": "رابط غير صالح",
     "goHome": "العودة للرئيسية"
+  },
+  "booking": {
+    "heading": "هل تفضل حجز موعد؟",
+    "schedule": "ساعات العمل: الإثنين إلى الجمعة، 9:00 إلى 18:00.",
+    "bookCta": "حجز موعد",
+    "service": "الخدمة",
+    "servicePlaceholder": "اختر خدمة",
+    "date": "التاريخ",
+    "datePlaceholder": "اختر تاريخاً",
+    "time": "الوقت",
+    "name": "الاسم *",
+    "phone": "الهاتف *",
+    "email": "البريد الإلكتروني",
+    "comment": "تعليق",
+    "optional": "(اختياري)",
+    "confirm": "تأكيد الحجز",
+    "doneTitle": "تم حجز الموعد!",
+    "doneText": "بانتظاركم في {{date}} الساعة {{time}}.",
+    "bookAnother": "حجز موعد آخر",
+    "missingTitle": "بيانات ناقصة",
+    "missingDesc": "اختر الخدمة والتاريخ والوقت.",
+    "requiredTitle": "حقول مطلوبة",
+    "requiredDesc": "الاسم والهاتف مطلوبان.",
+    "bookErrorTitle": "تعذر الحجز"
   }
 }
