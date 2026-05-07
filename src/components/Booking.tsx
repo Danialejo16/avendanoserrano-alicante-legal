@@ -101,11 +101,11 @@ const Booking = () => {
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!serviceId || !date || hour === null) {
-      toast({ title: "Faltan datos", description: "Elige servicio, fecha y hora.", variant: "destructive" });
+      toast({ title: t("booking.missingTitle"), description: t("booking.missingDesc"), variant: "destructive" });
       return;
     }
     if (!name.trim() || !phone.trim()) {
-      toast({ title: "Datos obligatorios", description: "Nombre y teléfono son requeridos.", variant: "destructive" });
+      toast({ title: t("booking.requiredTitle"), description: t("booking.requiredDesc"), variant: "destructive" });
       return;
     }
     setSubmitting(true);
@@ -126,7 +126,7 @@ const Booking = () => {
       setDone(true);
       setBusy((prev) => new Set(prev).add(`${dateStr}_${hour}`));
     } catch (err: any) {
-      toast({ title: "No se pudo reservar", description: err?.message ?? "", variant: "destructive" });
+      toast({ title: t("booking.bookErrorTitle"), description: err?.message ?? "", variant: "destructive" });
     } finally {
       setSubmitting(false);
     }
@@ -138,10 +138,12 @@ const Booking = () => {
         <div className="w-16 h-16 rounded-full accent-gradient flex items-center justify-center mx-auto mb-4">
           <CheckCircle2 className="w-8 h-8 text-accent-foreground" />
         </div>
-        <h3 className="font-heading text-2xl font-semibold mb-2">¡Cita reservada!</h3>
+        <h3 className="font-heading text-2xl font-semibold mb-2">{t("booking.doneTitle")}</h3>
         <p className="text-muted-foreground">
-          Te esperamos el {date && format(date, "d 'de' MMMM", { locale: es })} a las{" "}
-          {hour !== null && formatHour(hour)}h.
+          {t("booking.doneText", {
+            date: date ? format(date, "PPP", { locale: dl }) : "",
+            time: hour !== null ? formatHour(hour) : "",
+          })}
         </p>
         <Button
           onClick={() => {
@@ -155,7 +157,7 @@ const Booking = () => {
           className="mt-6"
           variant="outline"
         >
-          Reservar otra cita
+          {t("booking.bookAnother")}
         </Button>
       </div>
     );
@@ -166,10 +168,10 @@ const Booking = () => {
       <Collapsible>
         <div className="text-center mb-2">
           <h3 className="font-heading text-xl md:text-2xl font-semibold text-foreground mb-2">
-            ¿Prefieres reservar una cita?
+            {t("booking.heading")}
           </h3>
           <p className="text-muted-foreground font-body text-sm mb-4">
-            Horario: lunes a viernes de 9:00 a 18:00 h.
+            {t("booking.schedule")}
           </p>
           <CollapsibleTrigger asChild>
             <Button
@@ -178,7 +180,7 @@ const Booking = () => {
               className="group"
             >
               <CalIcon className="w-4 h-4 mr-2" />
-              Reservar cita
+              {t("booking.bookCta")}
               <ChevronDown className="w-4 h-4 ml-2 transition-transform group-data-[state=open]:rotate-180" />
             </Button>
           </CollapsibleTrigger>
@@ -187,9 +189,9 @@ const Booking = () => {
         <CollapsibleContent className="data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up overflow-hidden">
           <form onSubmit={submit} className="bg-card border border-border rounded-lg p-6 md:p-8 space-y-6 mt-4">
             <div>
-              <Label className="mb-2 block">Servicio</Label>
+              <Label className="mb-2 block">{t("booking.service")}</Label>
               <Select value={serviceId} onValueChange={setServiceId}>
-                <SelectTrigger><SelectValue placeholder="Elige un servicio" /></SelectTrigger>
+                <SelectTrigger><SelectValue placeholder={t("booking.servicePlaceholder")} /></SelectTrigger>
                 <SelectContent>
                   {services.map((s) => (
                     <SelectItem key={s.id} value={s.id}>{s.name}</SelectItem>
@@ -200,7 +202,7 @@ const Booking = () => {
 
             <div className="grid md:grid-cols-2 gap-4">
               <div>
-                <Label className="mb-2 block">Fecha</Label>
+                <Label className="mb-2 block">{t("booking.date")}</Label>
                 <Popover>
                   <PopoverTrigger asChild>
                     <Button
@@ -209,7 +211,7 @@ const Booking = () => {
                       className={cn("w-full justify-start text-left font-normal", !date && "text-muted-foreground")}
                     >
                       <CalIcon className="mr-2 h-4 w-4" />
-                      {date ? format(date, "PPP", { locale: es }) : "Selecciona una fecha"}
+                      {date ? format(date, "PPP", { locale: dl }) : t("booking.datePlaceholder")}
                     </Button>
                   </PopoverTrigger>
                   <PopoverContent className="w-auto p-0" align="start">
@@ -220,7 +222,7 @@ const Booking = () => {
                         setDate(d);
                         setHour(null);
                       }}
-                      locale={es}
+                      locale={dl}
                       disabled={(d) => {
                         const today = startOfDay(new Date());
                         if (isBefore(d, today)) return true;
@@ -236,7 +238,7 @@ const Booking = () => {
                 </Popover>
               </div>
               <div>
-                <Label className="mb-2 block">Hora</Label>
+                <Label className="mb-2 block">{t("booking.time")}</Label>
                 <div className="grid grid-cols-3 gap-2">
                   {HOURS.map((h) => {
                     const taken = !date || !availableHours.includes(h);
@@ -256,7 +258,7 @@ const Booking = () => {
                         )}
                       >
                         <Clock className="w-3 h-3 inline mr-1" />
-                        {formatHour(h)}
+                        <span dir="ltr">{formatHour(h)}</span>
                       </button>
                     );
                   })}
@@ -266,27 +268,27 @@ const Booking = () => {
 
             <div className="grid md:grid-cols-2 gap-4">
               <div>
-                <Label htmlFor="ap-name" className="mb-2 block">Nombre *</Label>
+                <Label htmlFor="ap-name" className="mb-2 block">{t("booking.name")}</Label>
                 <Input id="ap-name" value={name} onChange={(e) => setName(e.target.value)} required maxLength={100} />
               </div>
               <div>
-                <Label htmlFor="ap-phone" className="mb-2 block">Teléfono *</Label>
+                <Label htmlFor="ap-phone" className="mb-2 block">{t("booking.phone")}</Label>
                 <Input id="ap-phone" type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} required maxLength={30} />
               </div>
             </div>
 
             <div>
-              <Label htmlFor="ap-email" className="mb-2 block">Email <span className="text-muted-foreground text-xs">(opcional)</span></Label>
+              <Label htmlFor="ap-email" className="mb-2 block">{t("booking.email")} <span className="text-muted-foreground text-xs">{t("booking.optional")}</span></Label>
               <Input id="ap-email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} maxLength={255} />
             </div>
 
             <div>
-              <Label htmlFor="ap-notes" className="mb-2 block">Comentario <span className="text-muted-foreground text-xs">(opcional)</span></Label>
+              <Label htmlFor="ap-notes" className="mb-2 block">{t("booking.comment")} <span className="text-muted-foreground text-xs">{t("booking.optional")}</span></Label>
               <Textarea id="ap-notes" value={notes} onChange={(e) => setNotes(e.target.value)} maxLength={500} rows={3} />
             </div>
 
             <Button type="submit" disabled={submitting} className="w-full accent-gradient text-accent-foreground py-6 text-base font-semibold">
-              {submitting ? <Loader2 className="w-4 h-4 animate-spin" /> : "Confirmar reserva"}
+              {submitting ? <Loader2 className="w-4 h-4 animate-spin" /> : t("booking.confirm")}
             </Button>
           </form>
         </CollapsibleContent>
