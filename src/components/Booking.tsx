@@ -2,7 +2,10 @@ import { useEffect, useMemo, useState } from "react";
 import { Calendar as CalIcon, Clock, Loader2, CheckCircle2, ChevronDown } from "lucide-react";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { format, addDays, startOfDay, isBefore } from "date-fns";
-import { es } from "date-fns/locale";
+import { es, enUS, ar, ru, zhCN } from "date-fns/locale";
+import { useTranslation } from "react-i18next";
+
+const dateLocales: Record<string, Locale> = { es, en: enUS, ar, ru, zh: zhCN };
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
