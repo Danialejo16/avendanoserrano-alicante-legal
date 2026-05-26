@@ -1,0 +1,5 @@
+# Configuración de Sweep AI
+branch: "main" # Tu rama principal
+blocked_directories:
+  - ".github/workflows" # Protege tus configuraciones de despliegue automático
+# Puedes añadir aquí carpetas específicas de Lovable si genera archivos de configuración propios
