@@ -33,7 +33,7 @@ const Footer = () => {
 
         <div className="flex flex-col md:items-end items-center gap-2">
           <p className="font-body text-sm text-muted-foreground text-center md:text-right">
-            © {new Date().getFullYear()} Avendaño Serrano Abogados. {t("footer.rights")}
+            © {new Date().getFullYear()} Avendaño Serrano Abogados S. L. P. {t("footer.rights")}
           </p>
           <button
             onClick={openCookieSettings}
