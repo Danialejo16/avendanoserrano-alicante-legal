@@ -17,16 +17,26 @@ const Contact = () => {
 
     const form = e.currentTarget;
     const formData = {
-      name: (form.elements.namedItem("name") as HTMLInputElement).value.trim(),
-      phone: (form.elements.namedItem("phone") as HTMLInputElement).value.trim(),
-      email: (form.elements.namedItem("email") as HTMLInputElement).value.trim(),
-      message: (form.elements.namedItem("message") as HTMLTextAreaElement).value.trim(),
+      name: (form.elements.namedItem("name") as HTMLInputElement).value.trim().slice(0, 200),
+      phone: (form.elements.namedItem("phone") as HTMLInputElement).value.trim().slice(0, 30),
+      email: (form.elements.namedItem("email") as HTMLInputElement).value.trim().slice(0, 255),
+      message: (form.elements.namedItem("message") as HTMLTextAreaElement).value.trim().slice(0, 5000),
     };
 
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email);
+    if (!formData.name || !formData.phone || !emailOk || !formData.message) {
+      toast({
+        title: t("contact.errorTitle"),
+        description: t("contact.errorText"),
+        variant: "destructive",
+      });
+      setLoading(false);
+      return;
+    }
+
     try {
-      const id = crypto.randomUUID();
-      await supabase.from("contact_submissions").insert({ ...formData, id });
-      await supabase.functions.invoke("send-contact-email", { body: formData });
+      const { error } = await supabase.functions.invoke("send-contact-email", { body: formData });
+      if (error) throw error;
       setSubmitted(true);
     } catch (error) {
       toast({
