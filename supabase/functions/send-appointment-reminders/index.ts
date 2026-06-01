@@ -6,6 +6,7 @@ const corsHeaders = {
 };
 
 // Runs via cron. Sends reminder emails for appointments happening tomorrow.
+// Protected by a shared cron secret stored in Supabase Vault.
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
   try {
@@ -13,6 +14,23 @@ Deno.serve(async (req) => {
       Deno.env.get("SUPABASE_URL")!,
       Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
     );
+
+    // Authenticate the caller: must present the cron secret from Vault.
+    const auth = req.headers.get("Authorization") ?? "";
+    const provided = auth.startsWith("Bearer ") ? auth.slice(7) : "";
+    const { data: secretRow } = await supabase
+      .schema("vault" as any)
+      .from("decrypted_secrets")
+      .select("decrypted_secret")
+      .eq("name", "cron_secret")
+      .maybeSingle();
+    const expected = (secretRow as any)?.decrypted_secret ?? "";
+    if (!expected || provided !== expected) {
+      return new Response(JSON.stringify({ error: "No autorizado" }), {
+        status: 401,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
 
     // Tomorrow in Europe/Madrid (approx; date-only is fine)
     const now = new Date();
@@ -57,7 +75,7 @@ Deno.serve(async (req) => {
     });
   } catch (err: any) {
     console.error("send-appointment-reminders error", err);
-    return new Response(JSON.stringify({ success: false, error: err?.message ?? "error" }), {
+    return new Response(JSON.stringify({ success: false, error: "Error interno" }), {
       status: 500,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
