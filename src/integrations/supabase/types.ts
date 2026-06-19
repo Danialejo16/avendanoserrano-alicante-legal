@@ -354,6 +354,24 @@ export type Database = {
         }
         Relationships: []
       }
+      site_content: {
+        Row: {
+          data: Json
+          section: string
+          updated_at: string
+        }
+        Insert: {
+          data?: Json
+          section: string
+          updated_at?: string
+        }
+        Update: {
+          data?: Json
+          section?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           created_at: string
