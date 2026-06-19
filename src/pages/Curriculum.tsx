@@ -105,8 +105,8 @@ const Curriculum = () => {
       <main className="max-w-5xl mx-auto px-6 md:px-12 py-16 space-y-16">
         <section>
           <SectionTitle icon={BookOpen} title={t("curriculum.profile")} />
-          <p className="font-body text-base leading-relaxed text-muted-foreground max-w-3xl">
-            {t("curriculum.profileText")}
+          <p className="font-body text-base leading-relaxed text-muted-foreground max-w-3xl whitespace-pre-line">
+            {cv.about || t("curriculum.profileText")}
           </p>
         </section>
 
