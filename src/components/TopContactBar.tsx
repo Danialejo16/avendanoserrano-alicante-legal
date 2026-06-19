@@ -1,29 +1,21 @@
 import { useEffect, useState } from "react";
 import { Phone, Mail, X, ChevronDown } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { useSiteContent } from "@/hooks/use-site-content";
 
 const STORAGE_KEY = "top-contact-bar-hidden";
-const PHONE = "+34 645 04 16 64";
-const PHONE_HREF = "tel:+34645041664";
-const EMAIL = "info@avendanoserrano.es";
 
 const TopContactBar = () => {
   const [hidden, setHidden] = useState(false);
   const { t } = useTranslation();
+  const { data } = useSiteContent("general");
 
   useEffect(() => {
     setHidden(localStorage.getItem(STORAGE_KEY) === "true");
   }, []);
 
-  const hide = () => {
-    localStorage.setItem(STORAGE_KEY, "true");
-    setHidden(true);
-  };
-
-  const show = () => {
-    localStorage.removeItem(STORAGE_KEY);
-    setHidden(false);
-  };
+  const hide = () => { localStorage.setItem(STORAGE_KEY, "true"); setHidden(true); };
+  const show = () => { localStorage.removeItem(STORAGE_KEY); setHidden(false); };
 
   if (hidden) {
     return (
@@ -42,26 +34,16 @@ const TopContactBar = () => {
     <div className="bg-navy-deep text-primary-foreground text-xs md:text-sm">
       <div className="max-w-7xl mx-auto px-6 md:px-12 h-9 flex items-center justify-between gap-4" dir="ltr">
         <div className="flex items-center gap-4 md:gap-6 overflow-hidden">
-          <a
-            href={PHONE_HREF}
-            className="flex items-center gap-1.5 hover:text-highlight-light transition-colors whitespace-nowrap"
-          >
+          <a href={data.phoneHref} className="flex items-center gap-1.5 hover:text-highlight-light transition-colors whitespace-nowrap">
             <Phone className="w-3.5 h-3.5" />
-            <span className="font-body">{PHONE}</span>
+            <span className="font-body">{data.phone}</span>
           </a>
-          <a
-            href={`mailto:${EMAIL}`}
-            className="hidden sm:flex items-center gap-1.5 hover:text-highlight-light transition-colors whitespace-nowrap"
-          >
+          <a href={`mailto:${data.email}`} className="hidden sm:flex items-center gap-1.5 hover:text-highlight-light transition-colors whitespace-nowrap">
             <Mail className="w-3.5 h-3.5" />
-            <span className="font-body">{EMAIL}</span>
+            <span className="font-body">{data.email}</span>
           </a>
         </div>
-        <button
-          onClick={hide}
-          aria-label={t("topBar.hideAria")}
-          className="p-1 hover:text-highlight-light transition-colors flex-shrink-0"
-        >
+        <button onClick={hide} aria-label={t("topBar.hideAria")} className="p-1 hover:text-highlight-light transition-colors flex-shrink-0">
           <X className="w-3.5 h-3.5" />
         </button>
       </div>

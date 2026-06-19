@@ -19,6 +19,9 @@ import NewsletterPopup from "./components/NewsletterPopup.tsx";
 import NewsletterUnsubscribe from "./pages/NewsletterUnsubscribe.tsx";
 import AdminNewsletter from "./pages/AdminNewsletter.tsx";
 import AdminAppointments from "./pages/AdminAppointments.tsx";
+import AdminContent from "./pages/AdminContent.tsx";
+
+
 
 const queryClient = new QueryClient();
 
@@ -41,6 +44,7 @@ const App = () => (
             <Route path="/admin/blog/:id" element={<AdminBlogEdit />} />
             <Route path="/admin/newsletter" element={<AdminNewsletter />} />
             <Route path="/admin/appointments" element={<AdminAppointments />} />
+            <Route path="/admin/content" element={<AdminContent />} />
             <Route path="/newsletter-unsubscribe" element={<NewsletterUnsubscribe />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
