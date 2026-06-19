@@ -1,25 +1,28 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft, GraduationCap, Briefcase, Award, MapPin, Mail, Phone, Scale, BookOpen, Languages } from "lucide-react";
+import { ArrowLeft, GraduationCap, Briefcase, Award, MapPin, Mail, Phone, Scale, BookOpen, Languages, Linkedin } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import Footer from "@/components/Footer";
+import { useSiteContent } from "@/hooks/use-site-content";
 
 const Curriculum = () => {
   const { t } = useTranslation();
+  const { data: cv } = useSiteContent("cv");
+  const { data: general } = useSiteContent("general");
 
-  const education = [
+  const education = cv.education.length ? cv.education.map(e => ({
+    title: e.title,
+    institution: e.institution,
+    period: [e.startYear, e.endYear].filter(Boolean).join(" – "),
+    description: e.description,
+  })) : [
     {
       title: t("cv.education.law.title", { defaultValue: "Grado en Derecho" }),
       institution: "Universidad de Alicante",
       period: "2016 – 2020",
       description: t("cv.education.law.desc", { defaultValue: "Formación integral en las distintas ramas del ordenamiento jurídico español y europeo." }),
     },
-    {
-      title: t("cv.education.master.title", { defaultValue: "Máster en Abogacía" }),
-      institution: "Universidad de Alicante",
-      period: "2020 – 2021",
-      description: t("cv.education.master.desc", { defaultValue: "Habilitación profesional para el ejercicio de la abogacía. Prácticas en despacho." }),
-    },
   ];
+
 
   const experience = [
     {
@@ -63,29 +66,39 @@ const Curriculum = () => {
           </Link>
 
           <div className="flex flex-col md:flex-row items-start md:items-center gap-8">
-            <div className="w-28 h-28 rounded-full bg-navy-deep border-2 border-highlight/30 flex items-center justify-center shrink-0">
-              <Scale className="w-12 h-12 text-highlight-light" />
+            <div className="w-28 h-28 rounded-full bg-navy-deep border-2 border-highlight/30 flex items-center justify-center shrink-0 overflow-hidden">
+              {cv.photoUrl ? (
+                <img src={cv.photoUrl} alt={cv.name || t("curriculum.name")} className="w-full h-full object-cover" />
+              ) : (
+                <Scale className="w-12 h-12 text-highlight-light" />
+              )}
             </div>
             <div>
               <h1 className="font-heading text-3xl md:text-4xl font-bold mb-2">
-                {t("curriculum.name")}
+                {cv.name || t("curriculum.name")}
               </h1>
               <p className="text-lg text-primary-foreground/70 font-body mb-4">
-                {t("curriculum.role")}
+                {cv.role || t("curriculum.role")}
               </p>
               <div className="flex flex-wrap gap-4 text-sm font-body text-primary-foreground/60">
                 <span className="flex items-center gap-1.5">
                   <MapPin className="w-4 h-4 text-highlight" /> {t("curriculum.location")}
                 </span>
-                <span className="flex items-center gap-1.5">
-                  <Mail className="w-4 h-4 text-highlight" /> @icali.es
+                <span className="flex items-center gap-1.5" dir="ltr">
+                  <Mail className="w-4 h-4 text-highlight" /> {cv.email || general.email}
                 </span>
-                <span className="flex items-center gap-1.5">
-                  <Phone className="w-4 h-4 text-highlight" /> +34 645 04 16 64
+                <span className="flex items-center gap-1.5" dir="ltr">
+                  <Phone className="w-4 h-4 text-highlight" /> {cv.phone || general.phone}
                 </span>
+                {cv.linkedin && (
+                  <a href={cv.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-highlight-light transition-colors">
+                    <Linkedin className="w-4 h-4 text-highlight" /> LinkedIn
+                  </a>
+                )}
               </div>
             </div>
           </div>
+
         </div>
       </header>
 
