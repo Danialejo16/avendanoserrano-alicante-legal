@@ -53,11 +53,17 @@ const Contact = () => {
     }
   };
 
+  const hoursValue = contact.hours.length
+    ? contact.hours.map(h => `${h.days}: ${h.hours}`).join(" · ")
+    : t("contact.hoursValue");
+
   const items = [
-    { icon: MapPin, label: t("contact.address"), value: t("contact.addressValue"), ltr: false },
-    { icon: Phone, label: t("contact.phone"), value: "+34 645 04 16 64", ltr: true },
-    { icon: Mail, label: t("contact.email"), value: "info@avendanoserrano.es", ltr: true },
-    { icon: Clock, label: t("contact.hours"), value: t("contact.hoursValue"), ltr: false },
+    { icon: MapPin, label: t("contact.address"), value: contact.address || t("contact.addressValue"), ltr: false },
+    { icon: Phone, label: t("contact.phone"), value: general.phone, ltr: true },
+    { icon: Mail, label: t("contact.email"), value: general.email, ltr: true },
+    { icon: Clock, label: t("contact.hours"), value: hoursValue, ltr: false },
+    ...contact.extraPhones.filter(p => p.value).map(p => ({ icon: Phone, label: p.label || t("contact.phone"), value: p.value, ltr: true })),
+    ...contact.extraEmails.filter(p => p.value).map(p => ({ icon: Mail, label: p.label || t("contact.email"), value: p.value, ltr: true })),
   ];
 
   return (
@@ -79,8 +85,8 @@ const Contact = () => {
 
         <div className="grid lg:grid-cols-5 gap-12">
           <div className="lg:col-span-2 space-y-8">
-            {items.map((item) => (
-              <div key={item.label} className="flex items-start gap-4">
+            {items.map((item, idx) => (
+              <div key={idx} className="flex items-start gap-4">
                 <div className="w-11 h-11 rounded-lg bg-navy-deep flex items-center justify-center flex-shrink-0">
                   <item.icon className="w-5 h-5 text-highlight-light" />
                 </div>
@@ -90,7 +96,13 @@ const Contact = () => {
                 </div>
               </div>
             ))}
+            {contact.mapsUrl && (
+              <div className="aspect-video w-full rounded-lg overflow-hidden border border-border">
+                <iframe src={contact.mapsUrl} className="w-full h-full" loading="lazy" title="Mapa" />
+              </div>
+            )}
           </div>
+
 
           <div className="lg:col-span-3">
             {submitted ? (
