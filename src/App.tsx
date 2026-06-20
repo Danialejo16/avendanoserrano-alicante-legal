@@ -20,6 +20,7 @@ import NewsletterUnsubscribe from "./pages/NewsletterUnsubscribe.tsx";
 import AdminNewsletter from "./pages/AdminNewsletter.tsx";
 import AdminAppointments from "./pages/AdminAppointments.tsx";
 import AdminContent from "./pages/AdminContent.tsx";
+import AdminGallery from "./pages/AdminGallery.tsx";
 
 
 
@@ -45,6 +46,7 @@ const App = () => (
             <Route path="/admin/newsletter" element={<AdminNewsletter />} />
             <Route path="/admin/appointments" element={<AdminAppointments />} />
             <Route path="/admin/content" element={<AdminContent />} />
+            <Route path="/admin/gallery" element={<AdminGallery />} />
             <Route path="/newsletter-unsubscribe" element={<NewsletterUnsubscribe />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
