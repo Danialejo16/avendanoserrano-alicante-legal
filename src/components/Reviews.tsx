@@ -124,13 +124,13 @@ const Reviews = () => {
       return;
     }
 
-    const { error } = await supabase.from("reviews").insert(parsed.data as Required<typeof parsed.data>);
+    const { data, error } = await supabase.functions.invoke("submit-review", { body: parsed.data });
     setSubmitting(false);
 
-    if (error) {
+    if (error || (data as any)?.error) {
       toast({
         title: "No se pudo enviar la reseña",
-        description: error.message,
+        description: (data as any)?.error ?? error?.message ?? "Inténtalo más tarde",
         variant: "destructive",
       });
       return;
