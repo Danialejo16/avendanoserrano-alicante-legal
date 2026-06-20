@@ -92,10 +92,10 @@ export function useSiteContent<K extends keyof SectionMap>(section: K) {
   });
 
   useEffect(() => {
-    const channel = supabase
-      .channel(`site_content_${section}`)
+    const channel = supabase.channel(`site_content_${section}_${Math.random().toString(36).slice(2)}`);
+    channel
       .on(
-        "postgres_changes",
+        "postgres_changes" as any,
         { event: "*", schema: "public", table: "site_content", filter: `section=eq.${section}` },
         () => qc.invalidateQueries({ queryKey: key }),
       )
