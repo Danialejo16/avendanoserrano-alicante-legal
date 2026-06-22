@@ -4,7 +4,9 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
-import Curriculum from "./pages/Curriculum.tsx";
+import Team from "./pages/Team.tsx";
+import AdminTeam from "./pages/AdminTeam.tsx";
+import { Navigate } from "react-router-dom";
 import Auth from "./pages/Auth.tsx";
 import Admin from "./pages/Admin.tsx";
 import AdminBlog from "./pages/AdminBlog.tsx";
@@ -36,7 +38,8 @@ const App = () => (
         <PageTransition>
           <Routes>
             <Route path="/" element={<Index />} />
-            <Route path="/curriculum" element={<Curriculum />} />
+            <Route path="/equipo" element={<Team />} />
+            <Route path="/curriculum" element={<Navigate to="/equipo" replace />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/auth" element={<Auth />} />
@@ -47,6 +50,7 @@ const App = () => (
             <Route path="/admin/appointments" element={<AdminAppointments />} />
             <Route path="/admin/content" element={<AdminContent />} />
             <Route path="/admin/gallery" element={<AdminGallery />} />
+            <Route path="/admin/team" element={<AdminTeam />} />
             <Route path="/newsletter-unsubscribe" element={<NewsletterUnsubscribe />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

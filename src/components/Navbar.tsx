@@ -21,7 +21,7 @@ const Navbar = () => {
   ];
 
   const pageLinks = [
-    { label: t("nav.curriculum"), href: "/curriculum" },
+    { label: t("nav.team", { defaultValue: "Nuestro equipo" }), href: "/equipo" },
     { label: t("nav.blog"), href: "/blog" },
   ];
 
