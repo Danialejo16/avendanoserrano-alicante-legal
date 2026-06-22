@@ -405,6 +405,54 @@ export type Database = {
         }
         Relationships: []
       }
+      team_members: {
+        Row: {
+          bio: string
+          created_at: string
+          email: string | null
+          id: string
+          is_founder: boolean
+          linkedin_url: string | null
+          name: string
+          phone: string | null
+          photo_url: string | null
+          role: string
+          socials: Json
+          sort_order: number
+          updated_at: string
+        }
+        Insert: {
+          bio?: string
+          created_at?: string
+          email?: string | null
+          id?: string
+          is_founder?: boolean
+          linkedin_url?: string | null
+          name: string
+          phone?: string | null
+          photo_url?: string | null
+          role?: string
+          socials?: Json
+          sort_order?: number
+          updated_at?: string
+        }
+        Update: {
+          bio?: string
+          created_at?: string
+          email?: string | null
+          id?: string
+          is_founder?: boolean
+          linkedin_url?: string | null
+          name?: string
+          phone?: string | null
+          photo_url?: string | null
+          role?: string
+          socials?: Json
+          sort_order?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           created_at: string
