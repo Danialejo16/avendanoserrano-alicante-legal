@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Mail, Phone, Linkedin, Facebook, Instagram, Twitter, Globe, Scale, Crown } from "lucide-react";
 import { useTranslation } from "react-i18next";
@@ -125,6 +126,11 @@ const MemberCard = ({ m }: { m: TeamMember }) => (
 const Team = () => {
   const { t } = useTranslation();
   const { data: members, isLoading } = useTeam();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }, []);
+
 
   const founder = members.find((m) => m.is_founder);
   const rest = members.filter((m) => !m.is_founder);
