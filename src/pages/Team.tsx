@@ -127,6 +127,11 @@ const Team = () => {
   const { t } = useTranslation();
   const { data: members, isLoading } = useTeam();
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }, []);
+
+
   const founder = members.find((m) => m.is_founder);
   const rest = members.filter((m) => !m.is_founder);
 
