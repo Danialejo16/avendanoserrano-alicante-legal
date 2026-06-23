@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Mail, Phone, Linkedin, Facebook, Instagram, Twitter, Globe, Scale, Crown } from "lucide-react";
 import { useTranslation } from "react-i18next";
