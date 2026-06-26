@@ -274,5 +274,24 @@
     "requiredTitle": "Datos obligatorios",
     "requiredDesc": "Nombre y teléfono son requeridos.",
     "bookErrorTitle": "No se pudo reservar"
+  },
+  "teamSection": {
+    "tagline": "Nuestro equipo",
+    "title": "Conozca a los profesionales del despacho",
+    "subtitle": "Abogados comprometidos con la excelencia y la atención personalizada.",
+    "cta": "Ver todo el equipo"
+  },
+  "team": {
+    "back": "Volver al inicio",
+    "founder": "Fundador",
+    "tagline": "Nuestro equipo",
+    "title": "Los profesionales detrás del despacho",
+    "subtitle": "Un equipo comprometido con la excelencia, la cercanía y la defensa rigurosa de los intereses de cada cliente.",
+    "loading": "Cargando equipo...",
+    "empty": "Aún no se han añadido miembros del equipo.",
+    "membersTitle": "Nuestros profesionales",
+    "ctaTitle": "¿Necesita asesoramiento jurídico?",
+    "ctaText": "Contacte con nuestro equipo y reciba atención personalizada.",
+    "ctaButton": "Contactar"
   }
 }

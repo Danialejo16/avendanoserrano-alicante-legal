@@ -274,5 +274,24 @@
     "requiredTitle": "必填字段",
     "requiredDesc": "姓名和电话为必填项。",
     "bookErrorTitle": "无法预约"
+  },
+  "teamSection": {
+    "tagline": "我们的团队",
+    "title": "认识律所的专业人员",
+    "subtitle": "致力于卓越和个性化关怀的律师。",
+    "cta": "查看整个团队"
+  },
+  "team": {
+    "back": "返回首页",
+    "founder": "创始人",
+    "tagline": "我们的团队",
+    "title": "律所背后的专业人员",
+    "subtitle": "一支致力于卓越、贴心服务和严格维护每位客户利益的团队。",
+    "loading": "加载团队中...",
+    "empty": "尚未添加团队成员。",
+    "membersTitle": "我们的专业人员",
+    "ctaTitle": "需要法律咨询?",
+    "ctaText": "联系我们的团队,获得个性化关注。",
+    "ctaButton": "联系"
   }
 }

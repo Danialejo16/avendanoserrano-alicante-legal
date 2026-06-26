@@ -274,5 +274,24 @@
     "requiredTitle": "Required fields",
     "requiredDesc": "Name and phone are required.",
     "bookErrorTitle": "Could not book"
+  },
+  "teamSection": {
+    "tagline": "Our team",
+    "title": "Meet the firm's professionals",
+    "subtitle": "Lawyers committed to excellence and personalized attention.",
+    "cta": "View the full team"
+  },
+  "team": {
+    "back": "Back to home",
+    "founder": "Founder",
+    "tagline": "Our team",
+    "title": "The professionals behind the firm",
+    "subtitle": "A team committed to excellence, closeness and rigorous defense of every client's interests.",
+    "loading": "Loading team...",
+    "empty": "No team members have been added yet.",
+    "membersTitle": "Our professionals",
+    "ctaTitle": "Need legal advice?",
+    "ctaText": "Contact our team and receive personalized attention.",
+    "ctaButton": "Contact"
   }
 }
