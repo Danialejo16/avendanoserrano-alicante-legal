@@ -172,6 +172,48 @@ export type Database = {
         }
         Relationships: []
       }
+      documents: {
+        Row: {
+          client_id: string | null
+          created_at: string
+          created_by: string | null
+          description: string | null
+          file_path: string
+          id: string
+          qr_code_url: string | null
+          title: string
+          updated_at: string
+          verification_code: string
+          view_count: number
+        }
+        Insert: {
+          client_id?: string | null
+          created_at?: string
+          created_by?: string | null
+          description?: string | null
+          file_path: string
+          id?: string
+          qr_code_url?: string | null
+          title: string
+          updated_at?: string
+          verification_code: string
+          view_count?: number
+        }
+        Update: {
+          client_id?: string | null
+          created_at?: string
+          created_by?: string | null
+          description?: string | null
+          file_path?: string
+          id?: string
+          qr_code_url?: string | null
+          title?: string
+          updated_at?: string
+          verification_code?: string
+          view_count?: number
+        }
+        Relationships: []
+      }
       gallery_photos: {
         Row: {
           category: string
@@ -492,6 +534,17 @@ export type Database = {
           _user_id: string
         }
         Returns: boolean
+      }
+      increment_document_view: { Args: { _code: string }; Returns: undefined }
+      verify_document: {
+        Args: { _code: string }
+        Returns: {
+          created_at: string
+          description: string
+          file_path: string
+          id: string
+          title: string
+        }[]
       }
     }
     Enums: {
