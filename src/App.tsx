@@ -23,6 +23,8 @@ import AdminNewsletter from "./pages/AdminNewsletter.tsx";
 import AdminAppointments from "./pages/AdminAppointments.tsx";
 import AdminContent from "./pages/AdminContent.tsx";
 import AdminGallery from "./pages/AdminGallery.tsx";
+import AdminDocuments from "./pages/AdminDocuments.tsx";
+import Verify from "./pages/Verify.tsx";
 
 
 
@@ -51,6 +53,8 @@ const App = () => (
             <Route path="/admin/content" element={<AdminContent />} />
             <Route path="/admin/gallery" element={<AdminGallery />} />
             <Route path="/admin/team" element={<AdminTeam />} />
+            <Route path="/admin/documents" element={<AdminDocuments />} />
+            <Route path="/verificar" element={<Verify />} />
             <Route path="/newsletter-unsubscribe" element={<NewsletterUnsubscribe />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
